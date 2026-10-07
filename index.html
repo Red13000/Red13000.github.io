@@ -1,0 +1,658 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Atlas Forge Studios</title>
+<meta name="description" content="Atlas Forge Studios, studio casablancais de jeux vidéo et d'applications mobiles. Vidéos marketing pour les entreprises et les cabinets médicaux.">
+<meta name="theme-color" content="#0D131B">
+<meta property="og:title" content="Atlas Forge Studios">
+<meta property="og:description" content="Studio marocain de jeux vidéo et d'applications mobiles.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://atlasforge-studios.com/">
+<meta property="og:image" content="https://atlasforge-studios.com/assets/logo-full.jpg">
+<link rel="canonical" href="https://atlasforge-studios.com/">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Jost:wght@400;500;600&display=swap">
+<style>
+/* Layout: une forge la nuit. Fond d'encre, emblème et braises en ouverture, les projets en grandes planches de cinéma, séparés par une ligne d'horizon dorée. */
+:root {
+  --ink: #0D131B;
+  --night: #141C27;
+  --plate: #1B2533;
+  --rule: #2B3747;
+  --snow: #ECEFF3;
+  --mist: #9CA7B6;
+  --gold: #C9A15A;
+  --ember: #F4A12E;
+  --ink-glass: rgba(13, 19, 27, 0.84);
+  --ink-fade: rgba(13, 19, 27, 0);
+  --ink-veil: rgba(13, 19, 27, 0.9);
+  --f-display: "Cinzel", "Trajan Pro", "Times New Roman", Georgia, serif;
+  --f-body: "Jost", "Futura", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --step--1: 0.8125rem;
+  --step-0: 1.0625rem;
+  --step-1: 1.3125rem;
+  --step-2: 1.75rem;
+  --step-3: clamp(2rem, 1.4rem + 2.4vw, 3rem);
+  --step-4: clamp(2.3rem, 1.5rem + 3.4vw, 3.9rem);
+  --gutter: clamp(16px, 4vw, 40px);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--snow);
+  font-family: var(--f-body);
+  font-size: var(--step-0);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 3px; }
+
+:root:not([data-lang="en"]) [data-l="en"],
+:root[data-lang="en"] [data-l="fr"] { display: none !important; }
+
+.wrap { max-width: 1180px; margin-inline: auto; padding-inline: var(--gutter); }
+
+h1, h2, h3 { font-family: var(--f-display); font-weight: 600; line-height: 1.15; text-wrap: balance; margin: 0; letter-spacing: 0.01em; }
+p { margin: 0; }
+.label {
+  font-size: var(--step--1);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  color: var(--gold);
+}
+.lead { color: var(--mist); max-width: 62ch; }
+
+/* Éléments à compléter avant la mise en ligne */
+.todo {
+  color: var(--ember);
+  border: 1px dashed var(--ember);
+  border-radius: 4px;
+  padding: 0.05em 0.4em;
+  font-style: normal;
+}
+
+/* En-tête */
+.top {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 10;
+  background: var(--ink-glass);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--rule);
+}
+.top .wrap { display: flex; align-items: center; gap: 24px; padding-block: 10px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; margin-right: auto; }
+.brand img { height: 34px; width: auto; }
+.brand span { font-family: var(--f-display); font-weight: 700; letter-spacing: 0.08em; font-size: 1rem; white-space: nowrap; }
+.nav { display: flex; gap: 22px; }
+.nav a { text-decoration: none; color: var(--mist); font-size: 0.95rem; }
+.nav a:hover { color: var(--snow); }
+.lang { display: flex; border: 1px solid var(--rule); border-radius: 999px; padding: 2px; }
+.lang button {
+  font: inherit; font-size: var(--step--1); font-weight: 600; letter-spacing: 0.1em;
+  background: none; border: 0; color: var(--mist); padding: 4px 10px; border-radius: 999px; cursor: pointer;
+}
+.lang button[aria-pressed="true"] { background: var(--plate); color: var(--snow); }
+@media (max-width: 760px) { .nav { display: none; } }
+
+/* Ouverture */
+.hero { overflow: hidden; }
+.hero .wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  align-items: center;
+  gap: clamp(24px, 5vw, 64px);
+  padding-block: clamp(40px, 7vw, 96px) clamp(40px, 6vw, 80px);
+}
+.hero-copy { display: grid; gap: 22px; min-width: 0; }
+.hero h1 { font-size: var(--step-4); }
+.hero h1 em { font-style: normal; color: var(--gold); }
+.hero .lead { font-size: 1.15rem; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  text-decoration: none; font-weight: 500;
+  padding: 11px 20px; border-radius: 6px;
+  border: 1px solid var(--gold);
+}
+.btn.solid { background: var(--gold); color: var(--ink); }
+.btn.solid:hover { background: var(--ember); border-color: var(--ember); }
+.btn.ghost { color: var(--snow); }
+.btn.ghost:hover { background: var(--plate); }
+.board { list-style: none; margin: 6px 0 0; padding: 0; display: grid; gap: 8px; border-top: 1px solid var(--rule); padding-top: 18px; }
+.board li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; }
+.board b { font-family: var(--f-display); font-weight: 600; letter-spacing: 0.04em; min-width: 7.5em; }
+.board span { color: var(--mist); font-size: 0.95rem; }
+.dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; flex: none; transform: translateY(-1px); }
+.dot.test { background: var(--gold); }
+.dot.dev { background: var(--ember); box-shadow: 0 0 10px var(--ember); }
+
+.forge { position: relative; margin: 0; max-width: 560px; justify-self: center; width: 100%; }
+.forge img { width: 100%; height: auto; position: relative; }
+.forge canvas { position: absolute; top: -12%; left: -6%; width: 112%; height: 112%; pointer-events: none; }
+@media (max-width: 860px) {
+  .hero .wrap { grid-template-columns: minmax(0, 1fr); }
+  .forge { order: -1; max-width: 360px; }
+}
+
+/* Séparateur : ligne d'horizon et étoile du logo */
+.horizon { display: flex; align-items: center; gap: 14px; color: var(--gold); }
+.horizon::before, .horizon::after { content: ""; flex: 1; height: 1px; background: var(--gold); opacity: 0.45; }
+.horizon svg { width: 14px; height: 14px; fill: var(--gold); }
+
+section { padding-block: clamp(56px, 8vw, 104px); }
+.sec-head { display: grid; gap: 12px; margin-bottom: clamp(28px, 4vw, 44px); }
+.sec-head h2 { font-size: var(--step-3); }
+
+/* Lumen Drift */
+.ld {
+  position: relative;
+  overflow: hidden;
+  border-block: 1px solid var(--rule);
+}
+.ld > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 70% 40%; }
+.ld::after {
+  content: ""; position: absolute; inset: 0;
+  background:
+    linear-gradient(90deg, var(--ink-veil) 0%, var(--ink-veil) 30%, var(--ink-fade) 78%),
+    linear-gradient(0deg, var(--ink) 0%, var(--ink-fade) 40%);
+}
+.ld .wrap { position: relative; z-index: 1; padding-block: clamp(48px, 8vw, 110px) clamp(32px, 5vw, 56px); display: grid; gap: 18px; }
+.ld .copy { display: grid; gap: 16px; }
+.ld .copy p { max-width: 34rem; }
+.chip {
+  justify-self: start;
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: var(--step--1); font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 5px 12px; border: 1px solid var(--rule); border-radius: 999px; background: var(--ink-glass);
+}
+.ld h3 { font-size: clamp(2.4rem, 1.6rem + 3.6vw, 4.4rem); font-weight: 700; letter-spacing: 0.06em; }
+.ld .tag { font-size: var(--step-1); color: var(--gold); font-weight: 500; }
+.ld p.story { color: var(--snow); opacity: 0.88; }
+@media (max-width: 640px) {
+  .ld::after { background: linear-gradient(0deg, var(--ink) 0%, var(--ink-veil) 55%, var(--ink-glass) 100%); }
+}
+
+.facts {
+  display: grid; grid-template-columns: repeat(5, minmax(0, 1fr));
+  margin: 26px 0 0; padding: 0; border-top: 1px solid var(--rule);
+}
+.facts div { padding: 16px 16px 0 0; display: grid; gap: 2px; align-content: start; }
+.facts dt { font-family: var(--f-display); font-size: var(--step-2); font-weight: 600; color: var(--snow); font-variant-numeric: tabular-nums; }
+.facts dd { margin: 0; color: var(--mist); font-size: 0.92rem; line-height: 1.4; }
+@media (max-width: 860px) { .facts { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+.gallery-wrap { padding-block: 28px 0; display: grid; gap: 14px; }
+.gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.gallery figure, .captures figure { margin: 0; display: grid; gap: 8px; min-width: 0; }
+.gallery img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 4px; }
+.gallery figcaption, .captures figcaption, .note { font-size: 0.88rem; color: var(--mist); }
+.captures { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.captures img { width: 100%; height: auto; aspect-ratio: 1840 / 848; object-fit: cover; border-radius: 4px; }
+@media (max-width: 760px) { .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .captures { grid-template-columns: minmax(0, 1fr); } }
+
+/* Projets en test fermé */
+.duo { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: clamp(40px, 6vw, 64px); }
+.app {
+  display: grid; grid-template-rows: auto 1fr; align-content: start;
+  background: var(--night); border: 1px solid var(--rule); border-radius: 8px; overflow: hidden;
+}
+.shot {
+  aspect-ratio: 16 / 9; width: 100%; max-width: 100%;
+  border-bottom: 1px dashed var(--ember);
+  display: grid; place-items: center; text-align: center; padding: 12px;
+  font-size: 0.9rem; color: var(--ember);
+}
+.shot img { width: 100%; height: 100%; object-fit: cover; }
+.app .body { display: grid; gap: 12px; align-content: start; min-width: 0; padding: 22px; }
+.app h3 { font-size: var(--step-2); letter-spacing: 0.04em; }
+.app h3 small { display: block; font-family: var(--f-body); font-size: 0.95rem; font-weight: 500; letter-spacing: 0.04em; color: var(--gold); margin-top: 4px; }
+.app .tag { font-size: var(--step--1); font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--mist); }
+.app p { color: var(--mist); }
+.mini { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.mini li { font-size: 0.85rem; padding: 3px 10px; border: 1px solid var(--rule); border-radius: 4px; color: var(--snow); }
+.app .state { font-size: 0.88rem; color: var(--mist); border-top: 1px solid var(--rule); padding-top: 12px; }
+@media (max-width: 860px) { .duo { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 420px) { .app .body { padding: 16px; } }
+
+/* Vidéos marketing */
+.offers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--rule); }
+.offers div { padding: 22px 24px 4px 0; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.offers h3 { font-size: var(--step-1); }
+.offers p { color: var(--mist); }
+.reels { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 34px; }
+.reel {
+  aspect-ratio: 16 / 9; border: 1px dashed var(--ember); border-radius: 6px;
+  display: grid; place-items: center; text-align: center; padding: 12px;
+  color: var(--ember); font-size: 0.9rem;
+}
+@media (max-width: 760px) {
+  .offers { grid-template-columns: minmax(0, 1fr); }
+  .offers div { padding-right: 0; border-bottom: 1px solid var(--rule); padding-bottom: 18px; }
+  .reels { grid-template-columns: minmax(0, 1fr); }
+}
+
+.example { margin-top: 26px; font-size: 0.98rem; }
+.contact-list a { color: var(--snow); text-decoration-color: var(--gold); text-underline-offset: 3px; }
+
+/* Façon de travailler */
+.method { background: var(--night); border-block: 1px solid var(--rule); }
+.tools-scroll { overflow-x: auto; }
+.tools { width: 100%; border-collapse: collapse; min-width: 640px; }
+.tools th, .tools td { text-align: left; vertical-align: top; padding: 14px 18px 14px 0; border-bottom: 1px solid var(--rule); }
+.tools thead th { font-size: var(--step--1); font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); padding-top: 0; }
+.tools tbody th { font-family: var(--f-display); font-weight: 600; font-size: 1.1rem; white-space: nowrap; }
+.tools td { color: var(--mist); }
+.tools td:last-child { color: var(--snow); }
+@media (max-width: 640px) {
+  .tools { min-width: 0; }
+  .tools thead { display: none; }
+  .tools tr { display: grid; gap: 4px; padding-block: 14px; border-bottom: 1px solid var(--rule); }
+  .tools th, .tools td { padding: 0; border: 0; }
+}
+
+/* Contact */
+.contact-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: clamp(24px, 5vw, 64px); align-items: start; }
+.contact-list { display: grid; gap: 18px; margin: 0; }
+.contact-list div { display: grid; gap: 4px; border-bottom: 1px solid var(--rule); padding-bottom: 14px; }
+.contact-list dt { font-size: var(--step--1); letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }
+.contact-list dd { margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 10px; font-size: 1.1rem; }
+.copy-btn {
+  font: inherit; font-size: var(--step--1); color: var(--snow); background: var(--plate);
+  border: 1px solid var(--rule); border-radius: 4px; padding: 3px 10px; cursor: pointer;
+}
+@media (max-width: 760px) { .contact-grid { grid-template-columns: minmax(0, 1fr); } }
+
+footer { border-top: 1px solid var(--rule); }
+footer .wrap { padding-block: 28px; display: grid; gap: 10px; color: var(--mist); font-size: 0.88rem; }
+footer .row { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; }
+footer img { height: 26px; width: auto; }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Atlas Forge Studios">
+      <img src="assets/emblem-96.webp" alt="" width="144" height="96">
+      <span>ATLAS FORGE</span>
+    </a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#projets"><span data-l="fr">Projets</span><span data-l="en">Projects</span></a>
+      <a href="#marketing"><span data-l="fr">Vidéos</span><span data-l="en">Videos</span></a>
+      <a href="#methode"><span data-l="fr">Méthode</span><span data-l="en">How we work</span></a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Langue / Language">
+      <button type="button" id="lang-fr" data-set="fr" aria-pressed="true">FR</button>
+      <button type="button" id="lang-en" data-set="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<div class="hero">
+  <div class="wrap">
+    <div class="hero-copy">
+      <p class="label"><span data-l="fr">Studio indépendant · Casablanca</span><span data-l="en">Independent studio · Casablanca</span></p>
+      <h1>
+        <span data-l="fr">Nous forgeons des <em>jeux</em> et des <em>applications</em> mobiles.</span>
+        <span data-l="en">We forge mobile <em>games</em> and <em>apps</em>.</span>
+      </h1>
+      <p class="lead">
+        <span data-l="fr">Atlas Forge Studios conçoit, développe et publie des jeux et des applications Android. Nous réalisons aussi des vidéos marketing pour les entreprises et les cabinets médicaux.</span>
+        <span data-l="en">Atlas Forge Studios designs, builds and publishes Android games and apps. We also produce marketing videos for small businesses and medical practices.</span>
+      </p>
+      <div class="actions">
+        <a class="btn solid" href="#projets"><span data-l="fr">Voir nos projets</span><span data-l="en">See our projects</span></a>
+        <a class="btn ghost" href="#contact"><span data-l="fr">Nous contacter</span><span data-l="en">Get in touch</span></a>
+      </div>
+      <ul class="board" aria-label="État des projets">
+        <li><i class="dot test" aria-hidden="true"></i><b>Volt Riff</b><span data-l="fr">Test fermé sur Google Play</span><span data-l="en">Closed testing on Google Play</span></li>
+        <li><i class="dot test" aria-hidden="true"></i><b>Brasier</b><span data-l="fr">Test fermé sur Google Play</span><span data-l="en">Closed testing on Google Play</span></li>
+        <li><i class="dot dev" aria-hidden="true"></i><b>Lumen Drift</b><span data-l="fr">En développement, démo jouable v0.5</span><span data-l="en">In development, playable demo v0.5</span></li>
+      </ul>
+    </div>
+    <figure class="forge">
+      <canvas id="embers" aria-hidden="true"></canvas>
+      <img src="assets/emblem.webp" width="760" height="508" alt="Emblème Atlas Forge Studios : une enclume rougeoyante devant une montagne enneigée, sous un anneau doré.">
+    </figure>
+  </div>
+</div>
+
+<div class="wrap"><div class="horizon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 0l2.2 9.8L24 12l-9.8 2.2L12 24l-2.2-9.8L0 12l9.8-2.2z"/></svg></div></div>
+
+<section id="projets" aria-labelledby="projets-t">
+  <div class="wrap sec-head">
+    <p class="label"><span data-l="fr">Projets</span><span data-l="en">Projects</span></p>
+    <h2 id="projets-t"><span data-l="fr">Trois projets en cours</span><span data-l="en">Three projects underway</span></h2>
+    <p class="lead">
+      <span data-l="fr">Deux jeux sont en test fermé sur Google Play. Notre plus grand projet, Lumen Drift, est en développement.</span>
+      <span data-l="en">Two games are in closed testing on Google Play. Our largest project, Lumen Drift, is in development.</span>
+    </p>
+  </div>
+
+  <article class="ld" aria-labelledby="ld-t">
+    <img src="assets/ld-passerelle.webp" width="1916" height="821" alt="" loading="lazy">
+    <div class="wrap">
+      <div class="copy">
+        <span class="chip"><i class="dot dev" aria-hidden="true"></i><span data-l="fr">En développement · Android</span><span data-l="en">In development · Android</span></span>
+        <h3 id="ld-t">LUMEN DRIFT</h3>
+        <p class="tag"><span data-l="fr">Action et exploration en 2,5D sur mobile.</span><span data-l="en">2.5D action and exploration on mobile.</span></p>
+        <p class="story">
+          <span data-l="fr">Kaelis est une Relayeuse, chargée de rallumer les stations éteintes. Sur une lune de glace, la station-serre Ostara est plongée dans le noir depuis quarante ans. Salle après salle, Kaelis capte la lumière, la transporte et la rend aux machines. Au dernier combat, elle épargne le Gardien Orphéon et lui rend sa lumière.</span>
+          <span data-l="en">Kaelis is a Relayer, sent to relight stations that have gone dark. On a frozen moon, the greenhouse station Ostara has been without light for forty years. Room by room, Kaelis captures light, carries it and gives it back to the machines. In the final fight she spares the Guardian, Orphéon, and returns his light.</span>
+        </p>
+      </div>
+      <dl class="facts">
+        <div><dt>11</dt><dd><span data-l="fr">salles dans la démo</span><span data-l="en">rooms in the demo</span></dd></div>
+        <div><dt>3</dt><dd><span data-l="fr">capacités : Lecture, Lumen, Élan</span><span data-l="en">abilities: Lecture, Lumen, Élan</span></dd></div>
+        <div><dt>44</dt><dd><span data-l="fr">bruitages et ambiances ElevenLabs</span><span data-l="en">ElevenLabs sound effects and ambiences</span></dd></div>
+        <div><dt>18</dt><dd><span data-l="fr">modèles 3D (personnages, ennemis, objets)</span><span data-l="en">3D models (characters, enemies, props)</span></dd></div>
+        <div><dt>120+</dt><dd><span data-l="fr">tests automatiques</span><span data-l="en">automated tests</span></dd></div>
+      </dl>
+    </div>
+  </article>
+
+  <div class="wrap gallery-wrap">
+    <div class="gallery">
+      <figure><img src="assets/ld-baie.webp" width="960" height="411" loading="lazy" alt="Baie d'arrimage : arches gelées ouvertes sur une cité de glace et une planète à anneaux."><figcaption><span data-l="fr">Baie d'arrimage</span><span data-l="en">Docking Bay</span></figcaption></figure>
+      <figure><img src="assets/ld-atrium.webp" width="960" height="411" loading="lazy" alt="Atrium des lampes : rotonde sombre couverte de lierre et de symboles lunaires."><figcaption><span data-l="fr">Atrium des lampes</span><span data-l="en">Lamp Atrium</span></figcaption></figure>
+      <figure><img src="assets/ld-serres.webp" width="960" height="411" loading="lazy" alt="Serres : jungle dorée sous un dôme de verre, cascades et planète à anneaux."><figcaption><span data-l="fr">Serres</span><span data-l="en">Greenhouses</span></figcaption></figure>
+      <figure><img src="assets/ld-laboratoire.webp" width="960" height="411" loading="lazy" alt="Laboratoire : cuves de spécimens végétaux et bras robotisés."><figcaption><span data-l="fr">Laboratoire</span><span data-l="en">Laboratory</span></figcaption></figure>
+      <figure><img src="assets/ld-racines.webp" width="960" height="411" loading="lazy" alt="Racines : ruines envahies de racines violettes dans la brume."><figcaption><span data-l="fr">Racines</span><span data-l="en">Roots</span></figcaption></figure>
+      <figure><img src="assets/ld-antichambre.webp" width="960" height="411" loading="lazy" alt="Antichambre : fresque d'un papillon géant dans une salle rouge."><figcaption><span data-l="fr">Antichambre</span><span data-l="en">Antechamber</span></figcaption></figure>
+    </div>
+    <p class="note"><span data-l="fr">Décors peints du jeu.</span><span data-l="en">Painted backdrops from the game.</span></p>
+    <div class="captures">
+      <figure><img src="assets/ld-capture-baie.webp" width="1600" height="737" loading="lazy" alt="Capture en jeu : Kaelis dans la Baie d'arrimage gelée."><figcaption><span data-l="fr">En jeu : la Baie d'arrimage</span><span data-l="en">In game: the Docking Bay</span></figcaption></figure>
+      <figure><img src="assets/ld-capture-serres.webp" width="1600" height="737" loading="lazy" alt="Capture en jeu : Kaelis à l'entrée de la Galerie des Serres, près d'une lampe."><figcaption><span data-l="fr">En jeu : la Galerie des Serres</span><span data-l="en">In game: the Greenhouse Gallery</span></figcaption></figure>
+    </div>
+    <p class="note"><span data-l="fr">Captures d'une version de développement.</span><span data-l="en">Screenshots from a development build.</span></p>
+  </div>
+
+  <div class="wrap">
+    <div class="duo">
+      <article class="app" aria-labelledby="voltriff-t">
+        <div class="body">
+          <span class="chip"><i class="dot test" aria-hidden="true"></i><span data-l="fr">Test fermé · Google Play</span><span data-l="en">Closed testing · Google Play</span></span>
+          <h3 id="voltriff-t">VOLT RIFF<small data-l="fr">Guitare rock</small><small data-l="en">Rock Guitar</small></h3>
+          <p class="tag"><span data-l="fr">Jeu de rythme à la guitare</span><span data-l="en">Guitar rhythm game</span></p>
+          <p>
+            <span data-l="fr">Les notes défilent sur 4 cordes, et le joueur les joue au bon moment pour enflammer la foule. La tournée traverse 20 villes, de Rabat à Londres, en passant par Casablanca, Paris et Tokyo. On compose sa tenue dans une garde-robe 3D et on collectionne les guitares.</span>
+            <span data-l="en">Notes scroll across 4 strings and you play them on the beat to fire up the crowd. The tour crosses 20 cities, from Rabat to London by way of Casablanca, Paris and Tokyo. Build your outfit in a 3D wardrobe and collect guitars.</span>
+          </p>
+          <ul class="mini">
+            <li><span data-l="fr">4 morceaux rock originaux</span><span data-l="en">4 original rock tracks</span></li>
+            <li><span data-l="fr">20 villes</span><span data-l="en">20 cities</span></li>
+            <li><span data-l="fr">25 guitares</span><span data-l="en">25 guitars</span></li>
+            <li><span data-l="fr">Mode bataille</span><span data-l="en">Battle mode</span></li>
+            <li><span data-l="fr">6 langues, dont l'arabe</span><span data-l="en">6 languages, including Arabic</span></li>
+            <li><span data-l="fr">Sans pub ni achat intégré</span><span data-l="en">No ads, no in-app purchases</span></li>
+          </ul>
+          <p class="state"><span data-l="fr">Version 2.6 en test sur Android. En préparation : les batailles en ligne.</span><span data-l="en">Version 2.6 in testing on Android. Coming next: online battles.</span></p>
+        </div>
+      </article>
+      <article class="app" aria-labelledby="brasier-t">
+        <div class="body">
+          <span class="chip"><i class="dot test" aria-hidden="true"></i><span data-l="fr">Test fermé · Google Play</span><span data-l="en">Closed testing · Google Play</span></span>
+          <h3 id="brasier-t">BRASIER<small data-l="fr">Opération Ferraille</small><small data-l="en">Operation Scrapyard</small></h3>
+          <p class="tag"><span data-l="fr">Run &amp; gun d'arcade en pixel art</span><span data-l="en">Arcade pixel-art run &amp; gun</span></p>
+          <p>
+            <span data-l="fr">Les docks sont envahis par la ferraille. On court, on saute, on tire dans tous les sens, et tout le décor explose. Douze héros farfelus, chacun avec sa voix, affrontent des machines géantes, seuls ou à quatre en coopération sur le même Wi-Fi.</span>
+            <span data-l="en">The docks have been overrun by scrap. Run, jump, shoot in every direction and watch the scenery blow up. Twelve quirky heroes, each with their own voice, take on giant machines, solo or with up to four players in co-op on the same Wi-Fi.</span>
+          </p>
+          <ul class="mini">
+            <li><span data-l="fr">12 héros</span><span data-l="en">12 heroes</span></li>
+            <li><span data-l="fr">Coop jusqu'à 4</span><span data-l="en">Co-op for up to 4</span></li>
+            <li><span data-l="fr">Missions de 3 à 5 min</span><span data-l="en">3–5 min missions</span></li>
+            <li><span data-l="fr">6 langues</span><span data-l="en">6 languages</span></li>
+            <li><span data-l="fr">Sans publicité</span><span data-l="en">No ads</span></li>
+          </ul>
+          <p class="state"><span data-l="fr">Version 0.6 en test fermé. En production : une campagne de 12 missions réparties sur 4 zones.</span><span data-l="en">Version 0.6 in closed testing. In production: a 12-mission campaign across 4 zones.</span></p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="horizon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 0l2.2 9.8L24 12l-9.8 2.2L12 24l-2.2-9.8L0 12l9.8-2.2z"/></svg></div></div>
+
+<section id="marketing" aria-labelledby="mk-t">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="label"><span data-l="fr">Vidéos marketing</span><span data-l="en">Marketing videos</span></p>
+      <h2 id="mk-t"><span data-l="fr">Des vidéos pour les entreprises et les médecins</span><span data-l="en">Videos for businesses and doctors</span></h2>
+      <p class="lead">
+        <span data-l="fr">Nous mettons notre savoir-faire de studio de jeux au service de petites entreprises et de cabinets médicaux : image, montage, voix et musique.</span>
+        <span data-l="en">We bring our game-studio skills to small businesses and medical practices: visuals, editing, voice and music.</span>
+      </p>
+    </div>
+    <div class="offers">
+      <div>
+        <h3><span data-l="fr">Présentation</span><span data-l="en">Introductions</span></h3>
+        <p><span data-l="fr">Une vidéo courte qui présente votre activité, votre équipe et vos services.</span><span data-l="en">A short video that introduces your business, your team and your services.</span></p>
+      </div>
+      <div>
+        <h3><span data-l="fr">Réseaux sociaux</span><span data-l="en">Social media</span></h3>
+        <p><span data-l="fr">Des formats verticaux et carrés pour Instagram, Facebook, TikTok et YouTube.</span><span data-l="en">Vertical and square formats for Instagram, Facebook, TikTok and YouTube.</span></p>
+      </div>
+      <div>
+        <h3><span data-l="fr">Voix et musique</span><span data-l="en">Voice and music</span></h3>
+        <p><span data-l="fr">Voix off, musique et habillage sonore, produits avec ElevenLabs et Suno.</span><span data-l="en">Voice-over, music and sound branding, produced with ElevenLabs and Suno.</span></p>
+      </div>
+    </div>
+    <p class="note example">
+      <span data-l="fr">Exemple récent : « Les petites histoires du Dr Hanae », une série de vidéos d'éducation pédiatrique en 3D pour Instagram.</span>
+      <span data-l="en">Recent example: "Les petites histoires du Dr Hanae", a series of 3D pediatric education videos for Instagram.</span>
+    </p>
+  </div>
+</section>
+
+<section id="methode" class="method" aria-labelledby="me-t">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="label"><span data-l="fr">Méthode</span><span data-l="en">How we work</span></p>
+      <h2 id="me-t"><span data-l="fr">Une petite équipe, l'IA à chaque étape</span><span data-l="en">A small team, with AI at every step</span></h2>
+      <p class="lead">
+        <span data-l="fr">Nous travaillons avec des outils d'IA pour aller plus vite. L'équipe relit et valide chaque contenu avant de le livrer.</span>
+        <span data-l="en">We work with AI tools to move faster. The team reviews and approves every piece before it ships.</span>
+      </p>
+    </div>
+    <div class="tools-scroll">
+      <table class="tools">
+        <thead>
+          <tr>
+            <th scope="col"><span data-l="fr">Outil</span><span data-l="en">Tool</span></th>
+            <th scope="col"><span data-l="fr">Ce que nous en faisons</span><span data-l="en">What we use it for</span></th>
+            <th scope="col"><span data-l="fr">Exemple concret</span><span data-l="en">Real example</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Claude</th>
+            <td><span data-l="fr">Conception, écriture et code, avec Claude Code</span><span data-l="en">Design, writing and code, with Claude Code</span></td>
+            <td><span data-l="fr">Le code, les tests et les traductions de Volt Riff, Brasier et Lumen Drift</span><span data-l="en">The code, tests and translations of Volt Riff, Brasier and Lumen Drift</span></td>
+          </tr>
+          <tr>
+            <th scope="row">ElevenLabs</th>
+            <td><span data-l="fr">Voix, bruitages et ambiances</span><span data-l="en">Voices, sound effects and ambiences</span></td>
+            <td><span data-l="fr">Brasier : 102 répliques et 33 bruitages. Lumen Drift : 32 bruitages, 12 ambiances et la voix de MNÉMÉ.</span><span data-l="en">Brasier: 102 voice lines and 33 sound effects. Lumen Drift: 32 sound effects, 12 ambiences and the voice of MNÉMÉ.</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Suno</th>
+            <td><span data-l="fr">Musique</span><span data-l="en">Music</span></td>
+            <td><span data-l="fr">Trois des quatre morceaux de Volt Riff, et le thème de Lumen Drift</span><span data-l="en">Three of Volt Riff's four tracks, and the Lumen Drift theme</span></td>
+          </tr>
+          <tr>
+            <th scope="row">OpenArt</th>
+            <td><span data-l="fr">Images et vidéos</span><span data-l="en">Images and video</span></td>
+            <td><span data-l="fr">Visuels de nos vidéos marketing</span><span data-l="en">Visuals for our marketing videos</span></td>
+          </tr>
+          <tr>
+            <th scope="row">ChatGPT</th>
+            <td><span data-l="fr">Images</span><span data-l="en">Images</span></td>
+            <td><span data-l="fr">Icônes Google Play et pixel art de Brasier</span><span data-l="en">Google Play icons and Brasier's pixel art</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Meshy</th>
+            <td><span data-l="fr">Modèles 3D</span><span data-l="en">3D models</span></td>
+            <td><span data-l="fr">Les 7 guitares 3D de Volt Riff et les 18 modèles de Lumen Drift</span><span data-l="en">Volt Riff's 7 3D guitars and Lumen Drift's 18 models</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Unity, Godot</th>
+            <td><span data-l="fr">Moteurs de jeu</span><span data-l="en">Game engines</span></td>
+            <td><span data-l="fr">Brasier et Lumen Drift sur Unity 6, Volt Riff sur Godot 4</span><span data-l="en">Brasier and Lumen Drift on Unity 6, Volt Riff on Godot 4</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="contact" aria-labelledby="ct-t">
+  <div class="wrap contact-grid">
+    <div class="sec-head">
+      <p class="label">Contact</p>
+      <h2 id="ct-t"><span data-l="fr">Parlons de votre projet</span><span data-l="en">Let's talk about your project</span></h2>
+      <p class="lead">
+        <span data-l="fr">Un jeu, une application ou une vidéo ? Écrivez-nous.</span>
+        <span data-l="en">A game, an app or a video? Write to us.</span>
+      </p>
+    </div>
+    <dl class="contact-list">
+      <div>
+        <dt>Email</dt>
+        <dd><a id="email" href="mailto:contact@atlasforge-studios.com">contact@atlasforge-studios.com</a><button type="button" class="copy-btn" id="copy-email"><span data-l="fr">Copier</span><span data-l="en">Copy</span></button></dd>
+      </div>
+      <div>
+        <dt><span data-l="fr">Adresse</span><span data-l="en">Address</span></dt>
+        <dd><span>276, boulevard Ibn Tachefine, 3<sup>e</sup> étage<br>Casablanca, <span data-l="fr">Maroc</span><span data-l="en">Morocco</span></span></dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="row"><img src="assets/emblem-96.webp" alt="" width="39" height="26"><strong>Atlas Forge Studios</strong><span>© 2026</span></div>
+    <div class="row">
+      <span>ATLAS FORGE STUDIOS SARLAU</span>
+      <span data-l="fr">Société à responsabilité limitée à associé unique au capital de 100 000 MAD</span><span data-l="en">Single-member limited liability company, share capital MAD 100,000</span>
+      <span><span data-l="fr">Siège social :</span><span data-l="en">Registered office:</span> 276, bd Ibn Tachefine, 3<sup>e</sup> étage, Casablanca, <span data-l="fr">Maroc</span><span data-l="en">Morocco</span></span>
+      <span><span data-l="fr">RC Casablanca n° 750811</span><span data-l="en">Casablanca Trade Register no. 750811</span></span>
+      <span>IF 73419569</span>
+      <span>ICE 004052053000093</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var root = document.documentElement;
+
+  function setLang(l) {
+    root.setAttribute("data-lang", l);
+    root.lang = l;
+    document.getElementById("lang-fr").setAttribute("aria-pressed", String(l === "fr"));
+    document.getElementById("lang-en").setAttribute("aria-pressed", String(l === "en"));
+  }
+  var start = "fr";
+  try { start = localStorage.getItem("af-lang") || start; } catch (e) {}
+  if (location.hash === "#en") start = "en";
+  setLang(start);
+  document.querySelectorAll(".lang button").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var l = b.getAttribute("data-set");
+      setLang(l);
+      try { localStorage.setItem("af-lang", l); } catch (e) {}
+    });
+  });
+
+  var copyBtn = document.getElementById("copy-email");
+  copyBtn.addEventListener("click", function () {
+    var el = document.getElementById("email");
+    var text = el.textContent.trim();
+    function selectIt() {
+      var r = document.createRange(); r.selectNodeContents(el);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+    }
+    try {
+      navigator.clipboard.writeText(text).then(function () {
+        copyBtn.querySelectorAll("span").forEach(function (s) { s.textContent = s.getAttribute("data-l") === "en" ? "Copied" : "Copié"; });
+      }, selectIt);
+    } catch (e) { selectIt(); }
+  });
+
+  // Braises qui montent de l'enclume
+  var cv = document.getElementById("embers");
+  if (!cv || !cv.getContext) return;
+  if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  var ctx = cv.getContext("2d");
+  var w = 0, h = 0, dpr = Math.min(window.devicePixelRatio || 1, 2), parts = [], running = true;
+  function size() {
+    var r = cv.getBoundingClientRect();
+    w = r.width; h = r.height;
+    cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  size();
+  window.addEventListener("resize", size);
+  function spawn() {
+    parts.push({
+      x: w * (0.5 + (Math.random() - 0.5) * 0.07),
+      y: h * 0.6,
+      vx: (Math.random() - 0.5) * 0.5,
+      vy: -(0.5 + Math.random() * 1.1) * (h / 520),
+      life: 0,
+      max: 70 + Math.random() * 90,
+      r: 0.8 + Math.random() * 1.6,
+      ph: Math.random() * 6.28
+    });
+  }
+  function tick() {
+    if (!running) return;
+    ctx.clearRect(0, 0, w, h);
+    if (parts.length < 46 && Math.random() < 0.55) spawn();
+    ctx.globalCompositeOperation = "lighter";
+    for (var i = parts.length - 1; i >= 0; i--) {
+      var p = parts[i];
+      p.life++;
+      p.x += p.vx + Math.sin(p.ph + p.life * 0.06) * 0.25;
+      p.y += p.vy;
+      var t = p.life / p.max;
+      if (t >= 1) { parts.splice(i, 1); continue; }
+      var a = (t < 0.15 ? t / 0.15 : 1 - (t - 0.15) / 0.85) * 0.9;
+      var g = Math.round(200 - 80 * t);
+      ctx.fillStyle = "rgba(255," + g + ",60," + a.toFixed(3) + ")";
+      ctx.beginPath(); ctx.arc(p.x, p.y, p.r * (1 - t * 0.5), 0, 6.283); ctx.fill();
+    }
+    requestAnimationFrame(tick);
+  }
+  document.addEventListener("visibilitychange", function () {
+    var was = running; running = !document.hidden;
+    if (running && !was) requestAnimationFrame(tick);
+  });
+  requestAnimationFrame(tick);
+})();
+</script>
+</body>
+</html>
