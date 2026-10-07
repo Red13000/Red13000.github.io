@@ -212,13 +212,13 @@ section { padding-block: clamp(56px, 8vw, 104px); }
   display: grid; grid-template-rows: auto 1fr; align-content: start;
   background: var(--night); border: 1px solid var(--rule); border-radius: 8px; overflow: hidden;
 }
-.shot {
-  aspect-ratio: 16 / 9; width: 100%; max-width: 100%;
-  border-bottom: 1px dashed var(--ember);
-  display: grid; place-items: center; text-align: center; padding: 12px;
-  font-size: 0.9rem; color: var(--ember);
-}
-.shot img { width: 100%; height: 100%; object-fit: cover; }
+/* Captures en tête de carte : 3 verticales (Volt Riff) ou 4 horizontales (Brasier), toujours en 16:9 */
+.shots { display: grid; gap: 2px; aspect-ratio: 16 / 9; background: var(--ink); border-bottom: 1px solid var(--rule); overflow: hidden; }
+.shots.tall { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.shots.wide { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(2, minmax(0, 1fr)); }
+.shots a { display: block; min-width: 0; min-height: 0; }
+.shots img { width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: opacity 0.2s; }
+.shots a:hover img { opacity: 0.85; }
 .app .body { display: grid; gap: 12px; align-content: start; min-width: 0; padding: 22px; }
 .app h3 { font-size: var(--step-2); letter-spacing: 0.04em; }
 .app h3 small { display: block; font-family: var(--f-body); font-size: 0.95rem; font-weight: 500; letter-spacing: 0.04em; color: var(--gold); margin-top: 4px; }
@@ -235,16 +235,49 @@ section { padding-block: clamp(56px, 8vw, 104px); }
 .offers div { padding: 22px 24px 4px 0; display: grid; gap: 8px; align-content: start; min-width: 0; }
 .offers h3 { font-size: var(--step-1); }
 .offers p { color: var(--mist); }
-.reels { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 34px; }
-.reel {
-  aspect-ratio: 16 / 9; border: 1px dashed var(--ember); border-radius: 6px;
-  display: grid; place-items: center; text-align: center; padding: 12px;
-  color: var(--ember); font-size: 0.9rem;
+/* Extraits verticaux côte à côte ; sur téléphone, défilement horizontal */
+.reels { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 22px; max-width: 760px; }
+.reels figure { margin: 0; display: grid; gap: 8px; min-width: 0; }
+.reel { position: relative; aspect-ratio: 9 / 16; border-radius: 8px; overflow: hidden; background: var(--night); border: 1px solid var(--rule); }
+.reel video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.reel-toggle {
+  position: absolute; right: 8px; bottom: 8px;
+  width: 34px; height: 34px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--ink-glass); color: var(--snow); border: 1px solid var(--rule); cursor: pointer;
 }
+.reel-toggle svg { width: 14px; height: 14px; fill: currentColor; }
+.reel-toggle .i-play { display: none; }
+.reel.paused .reel-toggle .i-play { display: block; }
+.reel.paused .reel-toggle .i-pause { display: none; }
+.reels figcaption { font-size: 0.88rem; color: var(--mist); line-height: 1.4; }
+.reels + .note { margin-top: 12px; }
 @media (max-width: 760px) {
   .offers { grid-template-columns: minmax(0, 1fr); }
   .offers div { padding-right: 0; border-bottom: 1px solid var(--rule); padding-bottom: 18px; }
-  .reels { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 560px) {
+  .reels { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 64%; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 6px; }
+  .reels figure { scroll-snap-align: start; }
+}
+
+/* Devenir testeur */
+.testers .wrap { display: grid; gap: clamp(28px, 4vw, 44px); }
+.testers .sec-head { margin-bottom: 0; }
+.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--rule); counter-reset: step; }
+.steps li { counter-increment: step; padding: 20px 24px 0 0; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.steps li::before { content: counter(step); font-family: var(--f-display); font-size: var(--step-2); font-weight: 600; color: var(--gold); line-height: 1; }
+.steps b { font-weight: 600; }
+.steps p { color: var(--mist); }
+.join { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.join article { background: var(--night); border: 1px solid var(--rule); border-radius: 8px; padding: 22px; display: grid; gap: 12px; align-content: start; min-width: 0; }
+.join h3 { font-size: var(--step-1); letter-spacing: 0.04em; }
+.join .actions a { font-size: 0.95rem; }
+.join .btn.ghost { border-color: var(--rule); }
+@media (max-width: 760px) {
+  .steps { grid-template-columns: minmax(0, 1fr); }
+  .steps li { padding-right: 0; padding-bottom: 16px; border-bottom: 1px solid var(--rule); }
+  .join { grid-template-columns: minmax(0, 1fr); }
 }
 
 .example { margin-top: 26px; font-size: 0.98rem; }
@@ -282,6 +315,7 @@ footer { border-top: 1px solid var(--rule); }
 footer .wrap { padding-block: 28px; display: grid; gap: 10px; color: var(--mist); font-size: 0.88rem; }
 footer .row { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; }
 footer img { height: 26px; width: auto; }
+footer a { color: var(--snow); text-decoration-color: var(--gold); text-underline-offset: 3px; }
 </style>
 </head>
 <body>
@@ -294,6 +328,7 @@ footer img { height: 26px; width: auto; }
     </a>
     <nav class="nav" aria-label="Sections">
       <a href="#projets"><span data-l="fr">Projets</span><span data-l="en">Projects</span></a>
+      <a href="#testeurs"><span data-l="fr">Testeurs</span><span data-l="en">Testers</span></a>
       <a href="#marketing"><span data-l="fr">Vidéos</span><span data-l="en">Videos</span></a>
       <a href="#methode"><span data-l="fr">Méthode</span><span data-l="en">How we work</span></a>
       <a href="#contact">Contact</a>
@@ -390,6 +425,11 @@ footer img { height: 26px; width: auto; }
   <div class="wrap">
     <div class="duo">
       <article class="app" aria-labelledby="voltriff-t">
+        <div class="shots tall">
+          <a href="assets/vr-concert.webp"><img src="assets/vr-concert.webp" width="720" height="1280" loading="lazy" alt="Volt Riff en concert : le guitariste sur scène, les notes défilent sur 4 cordes, combo ×4."></a>
+          <a href="assets/vr-tournee.webp"><img src="assets/vr-tournee.webp" width="720" height="1280" loading="lazy" alt="Volt Riff, écran Tournée : Rabat, Casablanca, Marrakech, Tanger, Lisbonne et Madrid."></a>
+          <a href="assets/vr-boutique.webp"><img src="assets/vr-boutique.webp" width="720" height="1280" loading="lazy" alt="Volt Riff, la boutique de guitares : quatre guitares avec leur prix en dollars du jeu."></a>
+        </div>
         <div class="body">
           <span class="chip"><i class="dot test" aria-hidden="true"></i><span data-l="fr">Test fermé · Google Play</span><span data-l="en">Closed testing · Google Play</span></span>
           <h3 id="voltriff-t">VOLT RIFF<small data-l="fr">Guitare rock</small><small data-l="en">Rock Guitar</small></h3>
@@ -406,10 +446,16 @@ footer img { height: 26px; width: auto; }
             <li><span data-l="fr">6 langues, dont l'arabe</span><span data-l="en">6 languages, including Arabic</span></li>
             <li><span data-l="fr">Sans pub ni achat intégré</span><span data-l="en">No ads, no in-app purchases</span></li>
           </ul>
-          <p class="state"><span data-l="fr">Version 2.6 en test sur Android. En préparation : les batailles en ligne.</span><span data-l="en">Version 2.6 in testing on Android. Coming next: online battles.</span></p>
+          <p class="state"><span data-l="fr">Version 2.5 en test fermé sur Android. En préparation : les batailles en ligne.</span><span data-l="en">Version 2.5 in closed testing on Android. Coming next: online battles.</span></p>
         </div>
       </article>
       <article class="app" aria-labelledby="brasier-t">
+        <div class="shots wide">
+          <a href="assets/br-boss.webp"><img src="assets/br-boss.webp" width="1280" height="720" loading="lazy" alt="Brasier : combat contre Ferrox, une grue géante, sur les docks au coucher du soleil."></a>
+          <a href="assets/br-combat.webp"><img src="assets/br-combat.webp" width="1280" height="720" loading="lazy" alt="Brasier : un héros saute entre les conteneurs des docks en pixel art."></a>
+          <a href="assets/br-heros.webp"><img src="assets/br-heros.webp" width="1280" height="720" loading="lazy" alt="Brasier : écran de choix du héros, avec Roxy la mécanicienne et ses statistiques."></a>
+          <a href="assets/br-coop.webp"><img src="assets/br-coop.webp" width="1280" height="720" loading="lazy" alt="Brasier : écran « Partie avec les amis » pour jouer à plusieurs sur le même Wi-Fi."></a>
+        </div>
         <div class="body">
           <span class="chip"><i class="dot test" aria-hidden="true"></i><span data-l="fr">Test fermé · Google Play</span><span data-l="en">Closed testing · Google Play</span></span>
           <h3 id="brasier-t">BRASIER<small data-l="fr">Opération Ferraille</small><small data-l="en">Operation Scrapyard</small></h3>
@@ -432,7 +478,52 @@ footer img { height: 26px; width: auto; }
   </div>
 </section>
 
-<div class="wrap"><div class="horizon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 0l2.2 9.8L24 12l-9.8 2.2L12 24l-2.2-9.8L0 12l9.8-2.2z"/></svg></div></div>
+<section id="testeurs" class="testers method" aria-labelledby="ts-t">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="label"><span data-l="fr">Devenir testeur</span><span data-l="en">Become a tester</span></p>
+      <h2 id="ts-t"><span data-l="fr">Jouez avant tout le monde</span><span data-l="en">Play before everyone else</span></h2>
+      <p class="lead">
+        <span data-l="fr">Volt Riff et Brasier sont en test fermé sur Google Play. Avant leur sortie, nous cherchons des joueurs sur téléphone Android pour les essayer et nous dire ce qu'ils en pensent. C'est gratuit.</span>
+        <span data-l="en">Volt Riff and Brasier are in closed testing on Google Play. Before release, we are looking for players with an Android phone to try them and tell us what they think. It's free.</span>
+      </p>
+    </div>
+    <ol class="steps">
+      <li>
+        <b><span data-l="fr">Écrivez-nous</span><span data-l="en">Write to us</span></b>
+        <p><span data-l="fr">Indiquez le jeu choisi et l'adresse Gmail utilisée sur votre téléphone Android.</span><span data-l="en">Tell us which game you want and the Gmail address used on your Android phone.</span></p>
+      </li>
+      <li>
+        <b><span data-l="fr">Nous vous inscrivons</span><span data-l="en">We sign you up</span></b>
+        <p><span data-l="fr">Nous ajoutons votre adresse à la liste des testeurs du jeu et vous envoyons le lien du test par e-mail.</span><span data-l="en">We add your address to the game's tester list and email you the test link.</span></p>
+      </li>
+      <li>
+        <b><span data-l="fr">Installez et jouez</span><span data-l="en">Install and play</span></b>
+        <p><span data-l="fr">Ouvrez ce lien, acceptez l'invitation, puis installez le jeu depuis Google Play. Gardez-le au moins 14 jours.</span><span data-l="en">Open that link, accept the invitation, then install the game from Google Play. Keep it for at least 14 days.</span></p>
+      </li>
+    </ol>
+    <div class="join">
+      <article aria-labelledby="ts-vr">
+        <h3 id="ts-vr">VOLT RIFF</h3>
+        <p class="note"><span data-l="fr">Guitare rock · jeu de rythme</span><span data-l="en">Rock guitar · rhythm game</span></p>
+        <div class="actions">
+          <a class="btn solid" href="mailto:contact@atlasforge-studios.com?subject=Testeur%20Volt%20Riff"><span data-l="fr">Devenir testeur</span><span data-l="en">Become a tester</span></a>
+        </div>
+      </article>
+      <article aria-labelledby="ts-br">
+        <h3 id="ts-br">BRASIER</h3>
+        <p class="note"><span data-l="fr">Run &amp; gun en pixel art · coop jusqu'à 4</span><span data-l="en">Pixel-art run &amp; gun · co-op for up to 4</span></p>
+        <div class="actions">
+          <a class="btn solid" href="mailto:contact@atlasforge-studios.com?subject=Testeur%20Brasier"><span data-l="fr">Devenir testeur</span><span data-l="en">Become a tester</span></a>
+        </div>
+      </article>
+    </div>
+    <p class="note">
+      <span data-l="fr">Votre adresse sert uniquement à vous ajouter au test Google Play. Nous ne la partageons avec personne.</span>
+      <span data-l="en">We use your address only to add you to the Google Play test and never share it.</span>
+    </p>
+  </div>
+</section>
 
 <section id="marketing" aria-labelledby="mk-t">
   <div class="wrap">
@@ -462,6 +553,21 @@ footer img { height: 26px; width: auto; }
       <span data-l="fr">Exemple récent : « Les petites histoires du Dr Hanae », une série de vidéos d'éducation pédiatrique en 3D pour Instagram.</span>
       <span data-l="en">Recent example: "Les petites histoires du Dr Hanae", a series of 3D pediatric education videos for Instagram.</span>
     </p>
+    <div class="reels">
+      <figure>
+        <div class="reel"><video src="assets/hanae-bebe.mp4" poster="assets/hanae-bebe.webp" width="540" height="960" muted loop playsinline preload="none" aria-label="Le Dr Hanae tient un nourrisson dans son cabinet."></video><button type="button" class="reel-toggle" aria-label="Pause"><svg class="i-pause" viewBox="0 0 14 14"><path d="M3 2h3v10H3zM8 2h3v10H8z"/></svg><svg class="i-play" viewBox="0 0 14 14"><path d="M3 1.5v11l9-5.5z"/></svg></button></div>
+        <figcaption><span data-l="fr">Le Dr Hanae et un nourrisson</span><span data-l="en">Dr Hanae with an infant</span></figcaption>
+      </figure>
+      <figure>
+        <div class="reel"><video src="assets/hanae-paracetamol.mp4" poster="assets/hanae-paracetamol.webp" width="540" height="960" muted loop playsinline preload="none" aria-label="Le Dr Hanae montre un flacon de paracétamol et une cuillère-dose."></video><button type="button" class="reel-toggle" aria-label="Pause"><svg class="i-pause" viewBox="0 0 14 14"><path d="M3 2h3v10H3zM8 2h3v10H8z"/></svg><svg class="i-play" viewBox="0 0 14 14"><path d="M3 1.5v11l9-5.5z"/></svg></button></div>
+        <figcaption><span data-l="fr">Le Dr Hanae présente le paracétamol</span><span data-l="en">Dr Hanae explains paracetamol</span></figcaption>
+      </figure>
+      <figure>
+        <div class="reel"><video src="assets/hanae-thermometre.mp4" poster="assets/hanae-thermometre.webp" width="540" height="960" muted loop playsinline preload="none" aria-label="Une maman prend la température de son enfant fiévreux, au lit."></video><button type="button" class="reel-toggle" aria-label="Pause"><svg class="i-pause" viewBox="0 0 14 14"><path d="M3 2h3v10H3zM8 2h3v10H8z"/></svg><svg class="i-play" viewBox="0 0 14 14"><path d="M3 1.5v11l9-5.5z"/></svg></button></div>
+        <figcaption><span data-l="fr">Une maman prend la température</span><span data-l="en">A mother takes a temperature</span></figcaption>
+      </figure>
+    </div>
+    <p class="note"><span data-l="fr">Extraits de l'épisode « La fièvre », diffusés avec l'accord du médecin.</span><span data-l="en">Clips from the "Fever" episode, shown with the doctor's permission.</span></p>
   </div>
 </section>
 
@@ -562,6 +668,11 @@ footer img { height: 26px; width: auto; }
       <span>IF 73419569</span>
       <span>ICE 004052053000093</span>
     </div>
+    <div class="row">
+      <span data-l="fr">Politiques de confidentialité :</span><span data-l="en">Privacy policies:</span>
+      <a href="confidentialite/volt-riff.html">Volt Riff</a>
+      <a href="confidentialite/brasier.html">Brasier</a>
+    </div>
   </div>
 </footer>
 
@@ -600,6 +711,33 @@ footer img { height: 26px; width: auto; }
         copyBtn.querySelectorAll("span").forEach(function (s) { s.textContent = s.getAttribute("data-l") === "en" ? "Copied" : "Copié"; });
       }, selectIt);
     } catch (e) { selectIt(); }
+  });
+
+  // Extraits vidéo : lecture quand ils sont visibles, bouton pause, rien d'automatique si l'animation est réduite
+  var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  document.querySelectorAll(".reel").forEach(function (reel) {
+    var v = reel.querySelector("video");
+    var btn = reel.querySelector(".reel-toggle");
+    var held = reduced;
+    function sync() {
+      var en = root.getAttribute("data-lang") === "en";
+      reel.classList.toggle("paused", v.paused);
+      btn.setAttribute("aria-label", v.paused ? (en ? "Play" : "Lecture") : "Pause");
+    }
+    v.addEventListener("play", sync);
+    v.addEventListener("pause", sync);
+    sync();
+    btn.addEventListener("click", function () {
+      if (v.paused) { held = false; v.play().catch(function () {}); }
+      else { held = true; v.pause(); }
+    });
+    if (!("IntersectionObserver" in window)) return;
+    new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting && !held) v.play().catch(function () {});
+        else if (!e.isIntersecting) v.pause();
+      });
+    }, { threshold: 0.5 }).observe(v);
   });
 
   // Braises qui montent de l'enclume
