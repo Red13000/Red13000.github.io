@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Atlas Forge Studios</title>
-<meta name="description" content="Découvrez les jeux Android d’Atlas Forge Studios : BOSS OFF, Save the Pup, Draw &amp; Roll, Stack Up! et Pin Pop!, nos jeux en test et Lumen Drift en développement.">
+<meta name="description" content="Découvrez les jeux Android d’Atlas Forge Studios : BOSS OFF, Save the Pup, Draw &amp; Roll, Stack Up! et Pin Pop!, nos prochaines sorties et Lumen Drift en développement.">
 <meta name="theme-color" content="#0D131B">
 <meta name="google-site-verification" content="yFpZ-4ij834CzxWWnjwK_op5CE3JLJ1nUfF7uVTM59s">
 <meta property="og:title" content="Atlas Forge Studios">
@@ -212,7 +212,7 @@ section { padding-block: clamp(56px, 8vw, 104px); }
 @media (max-width: 760px) { .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 560px) { .captures { grid-template-columns: minmax(0, 1fr); } }
 
-/* Projets en test fermé */
+/* Prochaines sorties */
 .duo { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: clamp(40px, 6vw, 64px); }
 .app {
   display: grid; grid-template-rows: auto 1fr; align-content: start;
@@ -265,25 +265,6 @@ section { padding-block: clamp(56px, 8vw, 104px); }
 @media (max-width: 560px) {
   .reels { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 64%; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 6px; }
   .reels figure { scroll-snap-align: start; }
-}
-
-/* Devenir testeur */
-.testers .wrap { display: grid; gap: clamp(28px, 4vw, 44px); }
-.testers .sec-head { margin-bottom: 0; }
-.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--rule); counter-reset: step; }
-.steps li { counter-increment: step; padding: 20px 24px 0 0; display: grid; gap: 6px; align-content: start; min-width: 0; }
-.steps li::before { content: counter(step); font-family: var(--f-display); font-size: var(--step-2); font-weight: 600; color: var(--gold); line-height: 1; }
-.steps b { font-weight: 600; }
-.steps p { color: var(--mist); }
-.join { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
-.join article { background: var(--night); border: 1px solid var(--rule); border-radius: 8px; padding: 22px; display: grid; gap: 12px; align-content: start; min-width: 0; }
-.join h3 { font-size: var(--step-1); letter-spacing: 0.04em; }
-.join .actions a { font-size: 0.95rem; }
-.join .btn.ghost { border-color: var(--rule); }
-@media (max-width: 760px) {
-  .steps { grid-template-columns: minmax(0, 1fr); }
-  .steps li { padding-right: 0; padding-bottom: 16px; border-bottom: 1px solid var(--rule); }
-  .join { grid-template-columns: minmax(0, 1fr); }
 }
 
 .example { margin-top: 26px; font-size: 0.98rem; }
@@ -371,7 +352,7 @@ footer a { color: var(--snow); text-decoration-color: var(--gold); text-underlin
     <nav class="nav" aria-label="Sections">
       <a href="#projets"><span data-l="fr">Jeux</span><span data-l="en">Games</span></a>
       <a href="#boutique"><span data-l="fr">Boutique</span><span data-l="en">Shop</span></a>
-      <a href="#testeurs"><span data-l="fr">Testeurs</span><span data-l="en">Testers</span></a>
+      <a href="#testeurs"><span data-l="fr">À venir</span><span data-l="en">Coming soon</span></a>
       <a href="#marketing"><span data-l="fr">Vidéos</span><span data-l="en">Videos</span></a>
       <a href="#methode"><span data-l="fr">Méthode</span><span data-l="en">How we work</span></a>
       <a href="#contact">Contact</a>
@@ -403,7 +384,7 @@ footer a { color: var(--snow); text-decoration-color: var(--gold); text-underlin
       </div>
       <ul class="board" aria-label="État des jeux / Game status">
         <li><i class="dot live" aria-hidden="true"></i><b><span data-l="fr">5 jeux</span><span data-l="en">5 games</span></b><span data-l="fr">Disponibles sur Google Play</span><span data-l="en">Available on Google Play</span></li>
-        <li><i class="dot test" aria-hidden="true"></i><b>VOLT RIFF · BRASIER</b><span data-l="fr">Tests fermés sur Android</span><span data-l="en">Closed testing on Android</span></li>
+        <li><i class="dot test" aria-hidden="true"></i><b>VOLT RIFF · BRASIER</b><span data-l="fr">Sorties en cours d’examen</span><span data-l="en">Releases under review</span></li>
         <li><i class="dot dev" aria-hidden="true"></i><b>LUMEN DRIFT</b><span data-l="fr">Aventure 3D en développement</span><span data-l="en">3D adventure in development</span></li>
       </ul>
     </div>
@@ -420,7 +401,7 @@ footer a { color: var(--snow); text-decoration-color: var(--gold); text-underlin
   <div class="wrap sec-head">
     <p class="label"><span data-l="fr">Le catalogue du studio</span><span data-l="en">The studio catalogue</span></p>
     <h2 id="projets-t"><span data-l="fr">À vous de jouer</span><span data-l="en">Your turn to play</span></h2>
-    <p class="lead"><span data-l="fr">Cinq jeux à découvrir sur Google Play, du puzzle dessiné à l’arcade. Nos tests fermés et nos projets en développement sont présentés séparément ci-dessous.</span><span data-l="en">Five games to discover on Google Play, from drawing puzzles to arcade games. Our closed tests and projects in development are listed separately below.</span></p>
+    <p class="lead"><span data-l="fr">Cinq jeux à découvrir sur Google Play, du puzzle dessiné à l’arcade. Nos prochaines sorties et nos projets en développement sont présentés séparément ci-dessous.</span><span data-l="en">Five games to discover on Google Play, from drawing puzzles to arcade games. Our upcoming releases and projects in development are listed separately below.</span></p>
   </div>
   <div class="wrap" id="jeux-disponibles">
     <h3 class="catalogue-label"><span data-l="fr">Disponibles sur Google Play</span><span data-l="en">Available on Google Play</span></h3>
@@ -478,10 +459,10 @@ footer a { color: var(--snow); text-decoration-color: var(--gold); text-underlin
     </div>
     <p class="note catalogue-note"><span data-l="fr">La disponibilité peut varier selon votre pays et votre appareil. Consultez la fiche Google Play de chaque jeu.</span><span data-l="en">Availability may vary by country and device. Check each game’s Google Play listing.</span></p>
   </div>
-  <div class="wrap upcoming-heading">
-    <p class="label"><span data-l="fr">En test fermé</span><span data-l="en">In closed testing</span></p>
-    <h3><span data-l="fr">Essayez nos prochains jeux</span><span data-l="en">Try our upcoming games</span></h3>
-    <p class="lead"><span data-l="fr">VOLT RIFF et BRASIER ne sont pas encore disponibles pour tous. L’accès aux tests se fait sur invitation.</span><span data-l="en">VOLT RIFF and BRASIER are not yet available to everyone. Test access is by invitation.</span></p>
+  <div class="wrap upcoming-heading" id="testeurs">
+    <p class="label"><span data-l="fr">En cours d’examen</span><span data-l="en">Under review</span></p>
+    <h3><span data-l="fr">Nos prochaines sorties</span><span data-l="en">Our upcoming releases</span></h3>
+    <p class="lead"><span data-l="fr">Les versions de production de VOLT RIFF et BRASIER sont en cours d’examen par Google Play. Leur sortie publique attend la validation de Google.</span><span data-l="en">The production releases of VOLT RIFF and BRASIER are under review by Google Play. Their public release is awaiting Google’s approval.</span></p>
   </div>
   <div class="wrap">
     <div class="duo">
@@ -492,7 +473,7 @@ footer a { color: var(--snow); text-decoration-color: var(--gold); text-underlin
           <a href="assets/vr-boutique.webp"><img src="assets/vr-boutique.webp" width="720" height="1280" loading="lazy" alt="Volt Riff, la boutique de guitares : quatre guitares avec leur prix en dollars du jeu."></a>
         </div>
         <div class="body">
-          <span class="chip"><i class="dot test" aria-hidden="true"></i><span data-l="fr">Test fermé · Google Play</span><span data-l="en">Closed testing · Google Play</span></span>
+          <span class="chip"><i class="dot test" aria-hidden="true"></i><span data-l="fr">Sortie en cours d’examen</span><span data-l="en">Release under review</span></span>
           <h3 id="voltriff-t">VOLT RIFF<small data-l="fr">Guitare rock</small><small data-l="en">Rock Guitar</small></h3>
           <p class="tag"><span data-l="fr">Jeu de rythme à la guitare</span><span data-l="en">Guitar rhythm game</span></p>
           <p>
@@ -506,7 +487,7 @@ footer a { color: var(--snow); text-decoration-color: var(--gold); text-underlin
             <li><span data-l="fr">Mode bataille</span><span data-l="en">Battle mode</span></li>
             <li><span data-l="fr">6 langues, dont l'arabe</span><span data-l="en">6 languages, including Arabic</span></li>
           </ul>
-          <p class="state"><span data-l="fr">Test fermé sur Android. Accès réservé aux testeurs inscrits.</span><span data-l="en">Closed testing on Android. Access is limited to registered testers.</span></p>
+          <p class="state"><span data-l="fr">Version de production en cours d’examen par Google Play. Le lien public sera ajouté après sa mise à disposition.</span><span data-l="en">Production release under review by Google Play. A public link will be added once it is available.</span></p>
         </div>
       </article>
       <article class="app" aria-labelledby="brasier-t">
@@ -517,7 +498,7 @@ footer a { color: var(--snow); text-decoration-color: var(--gold); text-underlin
           <a href="assets/br-coop.webp"><img src="assets/br-coop.webp" width="1280" height="720" loading="lazy" alt="Brasier : écran « Partie avec les amis » pour jouer à plusieurs sur le même Wi-Fi."></a>
         </div>
         <div class="body">
-          <span class="chip"><i class="dot test" aria-hidden="true"></i><span data-l="fr">Test fermé · Google Play</span><span data-l="en">Closed testing · Google Play</span></span>
+          <span class="chip"><i class="dot test" aria-hidden="true"></i><span data-l="fr">Sortie en cours d’examen</span><span data-l="en">Release under review</span></span>
           <h3 id="brasier-t">BRASIER<small data-l="fr">Opération Ferraille</small><small data-l="en">Operation Scrapyard</small></h3>
           <p class="tag"><span data-l="fr">Run &amp; gun d'arcade en pixel art</span><span data-l="en">Arcade pixel-art run &amp; gun</span></p>
           <p>
@@ -530,57 +511,10 @@ footer a { color: var(--snow); text-decoration-color: var(--gold); text-underlin
             <li><span data-l="fr">Missions de 3 à 5 min</span><span data-l="en">3–5 min missions</span></li>
             <li><span data-l="fr">6 langues</span><span data-l="en">6 languages</span></li>
           </ul>
-          <p class="state"><span data-l="fr">Test fermé sur Android. La campagne continue d’évoluer avant la sortie publique.</span><span data-l="en">Closed testing on Android. The campaign continues to evolve ahead of public release.</span></p>
+          <p class="state"><span data-l="fr">Version de production en cours d’examen par Google Play. Le lien public sera ajouté après sa mise à disposition.</span><span data-l="en">Production release under review by Google Play. A public link will be added once it is available.</span></p>
         </div>
       </article>
     </div>
-  </div>
-</section>
-
-<section id="testeurs" class="testers method" aria-labelledby="ts-t">
-  <div class="wrap">
-    <div class="sec-head">
-      <p class="label"><span data-l="fr">Devenir testeur</span><span data-l="en">Become a tester</span></p>
-      <h2 id="ts-t"><span data-l="fr">Jouez avant tout le monde</span><span data-l="en">Play before everyone else</span></h2>
-      <p class="lead">
-        <span data-l="fr">Volt Riff et Brasier sont en test fermé sur Google Play. Avant leur sortie, nous cherchons des joueurs sur téléphone Android pour les essayer et nous dire ce qu'ils en pensent. C'est gratuit.</span>
-        <span data-l="en">Volt Riff and Brasier are in closed testing on Google Play. Before release, we are looking for players with an Android phone to try them and tell us what they think. It's free.</span>
-      </p>
-    </div>
-    <ol class="steps">
-      <li>
-        <b><span data-l="fr">Écrivez-nous</span><span data-l="en">Write to us</span></b>
-        <p><span data-l="fr">Indiquez le jeu choisi et l'adresse Gmail utilisée sur votre téléphone Android.</span><span data-l="en">Tell us which game you want and the Gmail address used on your Android phone.</span></p>
-      </li>
-      <li>
-        <b><span data-l="fr">Nous vous inscrivons</span><span data-l="en">We sign you up</span></b>
-        <p><span data-l="fr">Nous ajoutons votre adresse à la liste des testeurs du jeu et vous envoyons le lien du test par e-mail.</span><span data-l="en">We add your address to the game's tester list and email you the test link.</span></p>
-      </li>
-      <li>
-        <b><span data-l="fr">Installez et jouez</span><span data-l="en">Install and play</span></b>
-        <p><span data-l="fr">Ouvrez le lien reçu, acceptez l’invitation, puis installez le jeu depuis Google Play. Vos retours nous aident à l’améliorer.</span><span data-l="en">Open the link you receive, accept the invitation, then install the game from Google Play. Your feedback helps us improve it.</span></p>
-      </li>
-    </ol>
-    <div class="join">
-      <article aria-labelledby="ts-vr">
-        <h3 id="ts-vr">VOLT RIFF</h3>
-        <p class="note"><span data-l="fr">Guitare rock · jeu de rythme</span><span data-l="en">Rock guitar · rhythm game</span></p>
-        <div class="actions">
-          <a class="btn solid" href="mailto:contact@atlasforge-studios.com?subject=Testeur%20Volt%20Riff"><span data-l="fr">Devenir testeur</span><span data-l="en">Become a tester</span></a>
-        </div>
-      </article>
-      <article aria-labelledby="ts-br">
-        <h3 id="ts-br">BRASIER</h3>
-        <p class="note"><span data-l="fr">Run &amp; gun en pixel art · coop jusqu'à 4</span><span data-l="en">Pixel-art run &amp; gun · co-op for up to 4</span></p>
-        <div class="actions">
-          <a class="btn solid" href="mailto:contact@atlasforge-studios.com?subject=Testeur%20Brasier"><span data-l="fr">Devenir testeur</span><span data-l="en">Become a tester</span></a>
-        </div>
-      </article>
-    </div>
-    <p class="note">
-      <span data-l="fr">Votre adresse sert uniquement à vous ajouter au test Google Play. Nous ne la partageons avec personne.</span>
-      <span data-l="en">We use your address only to add you to the Google Play test and never share it.</span>
-    </p>
   </div>
 </section>
 
