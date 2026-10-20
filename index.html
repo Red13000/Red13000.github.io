@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Atlas Forge Studios</title>
-<meta name="description" content="Découvrez les jeux Android d’Atlas Forge Studios : BOSS OFF, Save the Pup, Draw &amp; Roll, Stack Up! et Pin Pop!, nos prochaines sorties et Lumen Drift en développement.">
+<meta name="description" content="Découvrez les jeux Android d’Atlas Forge Studios : BOSS OFF, Save the Pup, Draw &amp; Roll, Stack Up! et Pin Pop!, nos prochaines sorties, Noyau en test interne et Lumen Drift en développement.">
 <meta name="theme-color" content="#0D131B">
 <meta name="google-site-verification" content="yFpZ-4ij834CzxWWnjwK_op5CE3JLJ1nUfF7uVTM59s">
 <meta property="og:title" content="Atlas Forge Studios">
@@ -319,6 +319,7 @@ footer a { color: var(--snow); text-decoration-color: var(--gold); text-underlin
 .availability { display: flex; gap: 8px; align-items: center; font-size: 0.88rem; margin-top: auto; padding-top: 6px; }
 .game-card .btn { font-size: 0.92rem; padding: 10px 14px; }
 .catalogue-note { margin-top: 20px; }
+.internal-project { margin-top: 36px; }
 .upcoming-heading { display: grid; gap: 14px; margin-top: 64px; }
 .upcoming-heading h3 { font-size: var(--step-2); }
 .upcoming-heading + .wrap .duo { margin-top: 24px; }
@@ -385,6 +386,7 @@ footer a { color: var(--snow); text-decoration-color: var(--gold); text-underlin
       <ul class="board" aria-label="État des jeux / Game status">
         <li><i class="dot live" aria-hidden="true"></i><b><span data-l="fr">5 jeux</span><span data-l="en">5 games</span></b><span data-l="fr">Disponibles sur Google Play</span><span data-l="en">Available on Google Play</span></li>
         <li><i class="dot test" aria-hidden="true"></i><b>VOLT RIFF · BRASIER</b><span data-l="fr">Sorties en cours d’examen</span><span data-l="en">Releases under review</span></li>
+        <li><i class="dot test" aria-hidden="true"></i><b>NOYAU</b><span data-l="fr">En test interne</span><span data-l="en">In internal testing</span></li>
         <li><i class="dot dev" aria-hidden="true"></i><b>LUMEN DRIFT</b><span data-l="fr">Aventure 3D en développement</span><span data-l="en">3D adventure in development</span></li>
       </ul>
     </div>
@@ -401,7 +403,7 @@ footer a { color: var(--snow); text-decoration-color: var(--gold); text-underlin
   <div class="wrap sec-head">
     <p class="label"><span data-l="fr">Le catalogue du studio</span><span data-l="en">The studio catalogue</span></p>
     <h2 id="projets-t"><span data-l="fr">À vous de jouer</span><span data-l="en">Your turn to play</span></h2>
-    <p class="lead"><span data-l="fr">Cinq jeux à découvrir sur Google Play, du puzzle dessiné à l’arcade. Nos prochaines sorties et nos projets en développement sont présentés séparément ci-dessous.</span><span data-l="en">Five games to discover on Google Play, from drawing puzzles to arcade games. Our upcoming releases and projects in development are listed separately below.</span></p>
+    <p class="lead"><span data-l="fr">Cinq jeux à découvrir sur Google Play, du puzzle dessiné à l’arcade. Nos prochaines sorties, notre jeu en test interne et nos projets en développement sont présentés séparément ci-dessous.</span><span data-l="en">Five games to discover on Google Play, from drawing puzzles to arcade games. Our upcoming releases, our game in internal testing and projects in development are listed separately below.</span></p>
   </div>
   <div class="wrap" id="jeux-disponibles">
     <h3 class="catalogue-label"><span data-l="fr">Disponibles sur Google Play</span><span data-l="en">Available on Google Play</span></h3>
@@ -515,6 +517,16 @@ footer a { color: var(--snow); text-decoration-color: var(--gold); text-underlin
         </div>
       </article>
     </div>
+  </div>
+  <div class="wrap internal-project" id="noyau">
+    <article class="game-card" aria-labelledby="noyau-t">
+      <div class="game-title">
+        <img src="assets/noyau-icon.png" alt="" width="512" height="512" loading="lazy">
+        <h3 id="noyau-t">NOYAU<small><span data-l="fr">Défense en 3D · Android</span><span data-l="en">3D defence · Android</span></small></h3>
+      </div>
+      <p class="game-description"><span data-l="fr">Un jeu de défense en 3D pour Android. Placez vos tourelles pour protéger la base des vagues ennemies.</span><span data-l="en">A 3D defence game for Android. Place your turrets to protect the base from waves of enemies.</span></p>
+      <p class="availability"><i class="dot test" aria-hidden="true"></i><span data-l="fr">En test interne, non disponible publiquement.</span><span data-l="en">In internal testing, not publicly available.</span></p>
+    </article>
   </div>
 </section>
 
