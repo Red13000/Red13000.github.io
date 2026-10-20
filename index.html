@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Atlas Forge Studios</title>
-<meta name="description" content="Atlas Forge Studios, studio casablancais de jeux vidéo et d'applications mobiles. Vidéos marketing pour les entreprises et les cabinets médicaux.">
+<meta name="description" content="Découvrez les jeux Android d’Atlas Forge Studios : BOSS OFF, Save the Pup, Draw &amp; Roll, Stack Up! et Pin Pop!, nos jeux en test et Lumen Drift en développement.">
 <meta name="theme-color" content="#0D131B">
 <meta name="google-site-verification" content="yFpZ-4ij834CzxWWnjwK_op5CE3JLJ1nUfF7uVTM59s">
 <meta property="og:title" content="Atlas Forge Studios">
-<meta property="og:description" content="Studio marocain de jeux vidéo et d'applications mobiles.">
+<meta property="og:description" content="Nos jeux Android disponibles, nos projets en développement et la boutique Atlas Forge Studios en préparation.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://atlasforge-studios.com/">
 <meta property="og:image" content="https://atlasforge-studios.com/assets/logo-full.jpg">
@@ -44,7 +44,7 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 120px; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 body {
   margin: 0;
@@ -107,7 +107,12 @@ p { margin: 0; }
   background: none; border: 0; color: var(--mist); padding: 4px 10px; border-radius: 999px; cursor: pointer;
 }
 .lang button[aria-pressed="true"] { background: var(--plate); color: var(--snow); }
-@media (max-width: 760px) { .nav { display: none; } }
+@media (max-width: 1000px) {
+  .top .wrap { flex-wrap: wrap; gap: 6px 14px; }
+  .nav { order: 3; width: 100%; overflow-x: auto; gap: 20px; padding-bottom: 4px; }
+  .nav a { white-space: nowrap; padding-block: 4px; }
+}
+@media (max-width: 380px) { .brand span { font-size: 0.85rem; } .brand { gap: 6px; } }
 
 /* Ouverture */
 .hero { overflow: hidden; }
@@ -317,6 +322,42 @@ footer .wrap { padding-block: 28px; display: grid; gap: 10px; color: var(--mist)
 footer .row { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; }
 footer img { height: 26px; width: auto; }
 footer a { color: var(--snow); text-decoration-color: var(--gold); text-underline-offset: 3px; }
+
+/* Catalogue et boutique : mêmes couleurs et typographies que le site d’origine. */
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+.dot.live { background: #A6C69A; }
+.catalogue-label { font-family: var(--f-body); font-size: var(--step-1); margin-bottom: 20px; }
+.games-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.game-card { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; padding: 24px; background: var(--night); border: 1px solid var(--rule); border-radius: 8px; min-width: 0; }
+.game-title { display: flex; align-items: center; gap: 16px; width: 100%; }
+.game-title img { width: 76px; height: 76px; border-radius: 16px; flex: none; }
+.game-title h3 { font-size: 1.2rem; overflow-wrap: anywhere; }
+.game-title small { display: block; font: 400 0.85rem/1.4 var(--f-body); color: var(--mist); margin-top: 6px; }
+.game-card .tag, .development .tag { color: var(--gold); font-size: 0.85rem; letter-spacing: 0.08em; }
+.game-description { color: var(--mist); }
+.availability { display: flex; gap: 8px; align-items: center; font-size: 0.88rem; margin-top: auto; padding-top: 6px; }
+.game-card .btn { font-size: 0.92rem; padding: 10px 14px; }
+.catalogue-note { margin-top: 20px; }
+.upcoming-heading { display: grid; gap: 14px; margin-top: 64px; }
+.upcoming-heading h3 { font-size: var(--step-2); }
+.upcoming-heading + .wrap .duo { margin-top: 24px; }
+.development { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 36px; align-items: center; }
+.development-copy { display: grid; gap: 18px; }
+.development h3 { font-size: var(--step-3); }
+.development figure { margin: 0; display: grid; gap: 10px; }
+.development img { border-radius: 8px; height: auto; width: 100%; }
+.shop { padding-top: 0; }
+.shop-panel { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 0.8fr); gap: 32px; align-items: center; padding: clamp(24px, 5vw, 56px); border: 1px solid var(--gold); border-radius: 8px; background: var(--night); }
+.shop-copy { display: grid; gap: 18px; }
+.shop h2 { font-size: var(--step-3); }
+.shop-emblem { width: 100%; height: auto; }
+@media (max-width: 1050px) { .games-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 760px) {
+  .development { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .shop-panel { grid-template-columns: minmax(0, 1fr); }
+  .shop-emblem { display: none; }
+}
+@media (max-width: 560px) { .games-grid { grid-template-columns: minmax(0, 1fr); } .game-card { padding: 22px; } }
 </style>
 </head>
 <body>
@@ -328,7 +369,8 @@ footer a { color: var(--snow); text-decoration-color: var(--gold); text-underlin
       <span>ATLAS FORGE</span>
     </a>
     <nav class="nav" aria-label="Sections">
-      <a href="#projets"><span data-l="fr">Projets</span><span data-l="en">Projects</span></a>
+      <a href="#projets"><span data-l="fr">Jeux</span><span data-l="en">Games</span></a>
+      <a href="#boutique"><span data-l="fr">Boutique</span><span data-l="en">Shop</span></a>
       <a href="#testeurs"><span data-l="fr">Testeurs</span><span data-l="en">Testers</span></a>
       <a href="#marketing"><span data-l="fr">Vidéos</span><span data-l="en">Videos</span></a>
       <a href="#methode"><span data-l="fr">Méthode</span><span data-l="en">How we work</span></a>
@@ -356,13 +398,13 @@ footer a { color: var(--snow); text-decoration-color: var(--gold); text-underlin
         <span data-l="en">Atlas Forge Studios designs, builds and publishes Android games and apps. We also produce marketing videos for small businesses and medical practices.</span>
       </p>
       <div class="actions">
-        <a class="btn solid" href="#projets"><span data-l="fr">Voir nos projets</span><span data-l="en">See our projects</span></a>
-        <a class="btn ghost" href="#contact"><span data-l="fr">Nous contacter</span><span data-l="en">Get in touch</span></a>
+        <a class="btn solid" href="#projets"><span data-l="fr">Découvrir nos jeux</span><span data-l="en">Explore our games</span></a>
+        <a class="btn ghost" href="#boutique"><span data-l="fr">La boutique</span><span data-l="en">Our shop</span></a>
       </div>
-      <ul class="board" aria-label="État des projets">
-        <li><i class="dot test" aria-hidden="true"></i><b>Volt Riff</b><span data-l="fr">Test fermé sur Google Play</span><span data-l="en">Closed testing on Google Play</span></li>
-        <li><i class="dot test" aria-hidden="true"></i><b>Brasier</b><span data-l="fr">Test fermé sur Google Play</span><span data-l="en">Closed testing on Google Play</span></li>
-        <li><i class="dot dev" aria-hidden="true"></i><b>Lumen Drift</b><span data-l="fr">En développement, démo jouable v0.5</span><span data-l="en">In development, playable demo v0.5</span></li>
+      <ul class="board" aria-label="État des jeux / Game status">
+        <li><i class="dot live" aria-hidden="true"></i><b><span data-l="fr">5 jeux</span><span data-l="en">5 games</span></b><span data-l="fr">Disponibles sur Google Play</span><span data-l="en">Available on Google Play</span></li>
+        <li><i class="dot test" aria-hidden="true"></i><b>VOLT RIFF · BRASIER</b><span data-l="fr">Tests fermés sur Android</span><span data-l="en">Closed testing on Android</span></li>
+        <li><i class="dot dev" aria-hidden="true"></i><b>LUMEN DRIFT</b><span data-l="fr">Aventure 3D en développement</span><span data-l="en">3D adventure in development</span></li>
       </ul>
     </div>
     <figure class="forge">
@@ -376,53 +418,71 @@ footer a { color: var(--snow); text-decoration-color: var(--gold); text-underlin
 
 <section id="projets" aria-labelledby="projets-t">
   <div class="wrap sec-head">
-    <p class="label"><span data-l="fr">Projets</span><span data-l="en">Projects</span></p>
-    <h2 id="projets-t"><span data-l="fr">Trois projets en cours</span><span data-l="en">Three projects underway</span></h2>
-    <p class="lead">
-      <span data-l="fr">Deux jeux sont en test fermé sur Google Play. Notre plus grand projet, Lumen Drift, est en développement.</span>
-      <span data-l="en">Two games are in closed testing on Google Play. Our largest project, Lumen Drift, is in development.</span>
-    </p>
+    <p class="label"><span data-l="fr">Le catalogue du studio</span><span data-l="en">The studio catalogue</span></p>
+    <h2 id="projets-t"><span data-l="fr">À vous de jouer</span><span data-l="en">Your turn to play</span></h2>
+    <p class="lead"><span data-l="fr">Cinq jeux à découvrir sur Google Play, du puzzle dessiné à l’arcade. Nos tests fermés et nos projets en développement sont présentés séparément ci-dessous.</span><span data-l="en">Five games to discover on Google Play, from drawing puzzles to arcade games. Our closed tests and projects in development are listed separately below.</span></p>
   </div>
-
-  <article class="ld" aria-labelledby="ld-t">
-    <img src="assets/ld-passerelle.webp" width="1916" height="821" alt="" loading="lazy">
-    <div class="wrap">
-      <div class="copy">
-        <span class="chip"><i class="dot dev" aria-hidden="true"></i><span data-l="fr">En développement · Android</span><span data-l="en">In development · Android</span></span>
-        <h3 id="ld-t">LUMEN DRIFT</h3>
-        <p class="tag"><span data-l="fr">Action et exploration en 2,5D sur mobile.</span><span data-l="en">2.5D action and exploration on mobile.</span></p>
-        <p class="story">
-          <span data-l="fr">Kaelis est une Relayeuse, chargée de rallumer les stations éteintes. Sur une lune de glace, la station-serre Ostara est plongée dans le noir depuis quarante ans. Salle après salle, Kaelis capte la lumière, la transporte et la rend aux machines. Au dernier combat, elle épargne le Gardien Orphéon et lui rend sa lumière.</span>
-          <span data-l="en">Kaelis is a Relayer, sent to relight stations that have gone dark. On a frozen moon, the greenhouse station Ostara has been without light for forty years. Room by room, Kaelis captures light, carries it and gives it back to the machines. In the final fight she spares the Guardian, Orphéon, and returns his light.</span>
-        </p>
-      </div>
-      <dl class="facts">
-        <div><dt>11</dt><dd><span data-l="fr">salles dans la démo</span><span data-l="en">rooms in the demo</span></dd></div>
-        <div><dt>3</dt><dd><span data-l="fr">capacités : Lecture, Lumen, Élan</span><span data-l="en">abilities: Lecture, Lumen, Élan</span></dd></div>
-        <div><dt>44</dt><dd><span data-l="fr">bruitages et ambiances ElevenLabs</span><span data-l="en">ElevenLabs sound effects and ambiences</span></dd></div>
-        <div><dt>18</dt><dd><span data-l="fr">modèles 3D (personnages, ennemis, objets)</span><span data-l="en">3D models (characters, enemies, props)</span></dd></div>
-        <div><dt>120+</dt><dd><span data-l="fr">tests automatiques</span><span data-l="en">automated tests</span></dd></div>
-      </dl>
+  <div class="wrap" id="jeux-disponibles">
+    <h3 class="catalogue-label"><span data-l="fr">Disponibles sur Google Play</span><span data-l="en">Available on Google Play</span></h3>
+    <div class="games-grid">
+      <article class="game-card" aria-labelledby="boss-off-t">
+        <div class="game-title">
+          <img src="assets/boss-off-icon.png" alt="" width="512" height="512" loading="lazy">
+          <h3 id="boss-off-t">BOSS OFF!<small><span data-l="fr">Frappe ton patron</span><span data-l="en">Punch Your Boss</span></small></h3>
+        </div>
+        <p class="tag"><span data-l="fr">Arcade · humour cartoon</span><span data-l="en">Arcade · cartoon comedy</span></p>
+        <p class="game-description"><span data-l="fr">Un ring, des rounds de 15 secondes et un patron en version cartoon. Personnalisez son visage, débloquez des accessoires loufoques et partagez votre score de K.O.</span><span data-l="en">A ring, 15-second rounds and a cartoon boss. Customize the face, unlock silly tools and share your K.O. score.</span></p>
+        <p class="availability"><i class="dot live" aria-hidden="true"></i><span data-l="fr">Disponible sur Android</span><span data-l="en">Available on Android</span></p>
+        <a class="btn solid" href="https://play.google.com/store/apps/details?id=com.redahayek.bossoff"><span data-l="fr">Voir sur Google Play</span><span data-l="en">View on Google Play</span><span class="sr-only"> — BOSS OFF!</span><span aria-hidden="true">↗</span></a>
+      </article>
+      <article class="game-card" aria-labelledby="save-the-pup-t">
+        <div class="game-title">
+          <img src="assets/save-the-pup-icon.png" alt="" width="512" height="512" loading="lazy">
+          <h3 id="save-the-pup-t">SAVE THE PUP<small><span data-l="fr">Draw &amp; Protect</span><span data-l="en">Draw &amp; Protect</span></small></h3>
+        </div>
+        <p class="tag"><span data-l="fr">Puzzle · dessin</span><span data-l="en">Puzzle · drawing</span></p>
+        <p class="game-description"><span data-l="fr">Dessinez un bouclier pour tenir les abeilles à distance et protéger le chiot. À chaque niveau, trouvez le trait qui résiste à la physique.</span><span data-l="en">Draw a shield to keep the bees away and protect the pup. Find a line that holds up to physics in each puzzle.</span></p>
+        <p class="availability"><i class="dot live" aria-hidden="true"></i><span data-l="fr">Disponible sur Android</span><span data-l="en">Available on Android</span></p>
+        <a class="btn solid" href="https://play.google.com/store/apps/details?id=com.savethepup.game"><span data-l="fr">Voir sur Google Play</span><span data-l="en">View on Google Play</span><span class="sr-only"> — SAVE THE PUP</span><span aria-hidden="true">↗</span></a>
+      </article>
+      <article class="game-card" aria-labelledby="draw-roll-t">
+        <div class="game-title">
+          <img src="assets/draw-roll-icon.png" alt="" width="512" height="512" loading="lazy">
+          <h3 id="draw-roll-t">DRAW &amp; ROLL<small><span data-l="fr">Physics Puzzle</span><span data-l="en">Physics Puzzle</span></small></h3>
+        </div>
+        <p class="tag"><span data-l="fr">Puzzle · physique</span><span data-l="en">Puzzle · physics</span></p>
+        <p class="game-description"><span data-l="fr">Votre dessin prend vie : il roule, rebondit et glisse. Imaginez la forme qui vous permettra de résoudre chaque casse-tête.</span><span data-l="en">Your drawing comes to life: it rolls, bounces and slides. Imagine the shape that will solve each physics puzzle.</span></p>
+        <p class="availability"><i class="dot live" aria-hidden="true"></i><span data-l="fr">Disponible sur Android</span><span data-l="en">Available on Android</span></p>
+        <a class="btn solid" href="https://play.google.com/store/apps/details?id=com.drawroll.game"><span data-l="fr">Voir sur Google Play</span><span data-l="en">View on Google Play</span><span class="sr-only"> — DRAW &amp; ROLL</span><span aria-hidden="true">↗</span></a>
+      </article>
+      <article class="game-card" aria-labelledby="stack-up-t">
+        <div class="game-title">
+          <img src="assets/stack-up-icon.png" alt="" width="512" height="512" loading="lazy">
+          <h3 id="stack-up-t">STACK UP!<small><span data-l="fr">Tower to 1,000 m</span><span data-l="en">Tower to 1,000 m</span></small></h3>
+        </div>
+        <p class="tag"><span data-l="fr">Arcade · équilibre</span><span data-l="en">Arcade · balance</span></p>
+        <p class="game-description"><span data-l="fr">Lâchez les blocs au bon moment et construisez une tour qui tient debout. Trouvez l’équilibre et visez les 1 000 mètres.</span><span data-l="en">Drop each block at the right moment and build a tower that stays standing. Find your balance and aim for 1,000 metres.</span></p>
+        <p class="availability"><i class="dot live" aria-hidden="true"></i><span data-l="fr">Disponible sur Android</span><span data-l="en">Available on Android</span></p>
+        <a class="btn solid" href="https://play.google.com/store/apps/details?id=com.atlasforge.stackup"><span data-l="fr">Voir sur Google Play</span><span data-l="en">View on Google Play</span><span class="sr-only"> — STACK UP!</span><span aria-hidden="true">↗</span></a>
+      </article>
+      <article class="game-card" aria-labelledby="pin-pop-t">
+        <div class="game-title">
+          <img src="assets/pin-pop-icon.png" alt="" width="512" height="512" loading="lazy">
+          <h3 id="pin-pop-t">PIN POP!<small><span data-l="fr">Ball Puzzle</span><span data-l="en">Ball Puzzle</span></small></h3>
+        </div>
+        <p class="tag"><span data-l="fr">Puzzle · logique</span><span data-l="en">Puzzle · logic</span></p>
+        <p class="game-description"><span data-l="fr">Choisissez l’ordre des goupilles pour guider les balles colorées jusqu’au panier. Observez le parcours avant de libérer la première balle.</span><span data-l="en">Choose the order of the pins to guide colourful balls into the basket. Plan the route before releasing the first ball.</span></p>
+        <p class="availability"><i class="dot live" aria-hidden="true"></i><span data-l="fr">Disponible sur Android</span><span data-l="en">Available on Android</span></p>
+        <a class="btn solid" href="https://play.google.com/store/apps/details?id=com.pinpop.game"><span data-l="fr">Voir sur Google Play</span><span data-l="en">View on Google Play</span><span class="sr-only"> — PIN POP!</span><span aria-hidden="true">↗</span></a>
+      </article>
     </div>
-  </article>
-
-  <div class="wrap gallery-wrap">
-    <div class="gallery">
-      <figure><img src="assets/ld-baie.webp" width="960" height="411" loading="lazy" alt="Baie d'arrimage : arches gelées ouvertes sur une cité de glace et une planète à anneaux."><figcaption><span data-l="fr">Baie d'arrimage</span><span data-l="en">Docking Bay</span></figcaption></figure>
-      <figure><img src="assets/ld-atrium.webp" width="960" height="411" loading="lazy" alt="Atrium des lampes : rotonde sombre couverte de lierre et de symboles lunaires."><figcaption><span data-l="fr">Atrium des lampes</span><span data-l="en">Lamp Atrium</span></figcaption></figure>
-      <figure><img src="assets/ld-serres.webp" width="960" height="411" loading="lazy" alt="Serres : jungle dorée sous un dôme de verre, cascades et planète à anneaux."><figcaption><span data-l="fr">Serres</span><span data-l="en">Greenhouses</span></figcaption></figure>
-      <figure><img src="assets/ld-laboratoire.webp" width="960" height="411" loading="lazy" alt="Laboratoire : cuves de spécimens végétaux et bras robotisés."><figcaption><span data-l="fr">Laboratoire</span><span data-l="en">Laboratory</span></figcaption></figure>
-      <figure><img src="assets/ld-racines.webp" width="960" height="411" loading="lazy" alt="Racines : ruines envahies de racines violettes dans la brume."><figcaption><span data-l="fr">Racines</span><span data-l="en">Roots</span></figcaption></figure>
-      <figure><img src="assets/ld-antichambre.webp" width="960" height="411" loading="lazy" alt="Antichambre : fresque d'un papillon géant dans une salle rouge."><figcaption><span data-l="fr">Antichambre</span><span data-l="en">Antechamber</span></figcaption></figure>
-    </div>
-    <p class="note"><span data-l="fr">Décors peints du jeu.</span><span data-l="en">Painted backdrops from the game.</span></p>
-    <div class="captures">
-      <figure><img src="assets/ld-capture-baie.webp" width="1600" height="737" loading="lazy" alt="Capture en jeu : Kaelis dans la Baie d'arrimage gelée."><figcaption><span data-l="fr">En jeu : la Baie d'arrimage</span><span data-l="en">In game: the Docking Bay</span></figcaption></figure>
-      <figure><img src="assets/ld-capture-serres.webp" width="1600" height="737" loading="lazy" alt="Capture en jeu : Kaelis à l'entrée de la Galerie des Serres, près d'une lampe."><figcaption><span data-l="fr">En jeu : la Galerie des Serres</span><span data-l="en">In game: the Greenhouse Gallery</span></figcaption></figure>
-    </div>
-    <p class="note"><span data-l="fr">Captures d'une version de développement.</span><span data-l="en">Screenshots from a development build.</span></p>
+    <p class="note catalogue-note"><span data-l="fr">La disponibilité peut varier selon votre pays et votre appareil. Consultez la fiche Google Play de chaque jeu.</span><span data-l="en">Availability may vary by country and device. Check each game’s Google Play listing.</span></p>
   </div>
-
+  <div class="wrap upcoming-heading">
+    <p class="label"><span data-l="fr">En test fermé</span><span data-l="en">In closed testing</span></p>
+    <h3><span data-l="fr">Essayez nos prochains jeux</span><span data-l="en">Try our upcoming games</span></h3>
+    <p class="lead"><span data-l="fr">VOLT RIFF et BRASIER ne sont pas encore disponibles pour tous. L’accès aux tests se fait sur invitation.</span><span data-l="en">VOLT RIFF and BRASIER are not yet available to everyone. Test access is by invitation.</span></p>
+  </div>
   <div class="wrap">
     <div class="duo">
       <article class="app" aria-labelledby="voltriff-t">
@@ -445,9 +505,8 @@ footer a { color: var(--snow); text-decoration-color: var(--gold); text-underlin
             <li><span data-l="fr">25 guitares</span><span data-l="en">25 guitars</span></li>
             <li><span data-l="fr">Mode bataille</span><span data-l="en">Battle mode</span></li>
             <li><span data-l="fr">6 langues, dont l'arabe</span><span data-l="en">6 languages, including Arabic</span></li>
-            <li><span data-l="fr">Sans achat intégré</span><span data-l="en">No in-app purchases</span></li>
           </ul>
-          <p class="state"><span data-l="fr">Version 2.5 en test fermé sur Android. En préparation : les batailles en ligne.</span><span data-l="en">Version 2.5 in closed testing on Android. Coming next: online battles.</span></p>
+          <p class="state"><span data-l="fr">Test fermé sur Android. Accès réservé aux testeurs inscrits.</span><span data-l="en">Closed testing on Android. Access is limited to registered testers.</span></p>
         </div>
       </article>
       <article class="app" aria-labelledby="brasier-t">
@@ -470,9 +529,8 @@ footer a { color: var(--snow); text-decoration-color: var(--gold); text-underlin
             <li><span data-l="fr">Coop jusqu'à 4</span><span data-l="en">Co-op for up to 4</span></li>
             <li><span data-l="fr">Missions de 3 à 5 min</span><span data-l="en">3–5 min missions</span></li>
             <li><span data-l="fr">6 langues</span><span data-l="en">6 languages</span></li>
-            <li><span data-l="fr">Sans publicité</span><span data-l="en">No ads</span></li>
           </ul>
-          <p class="state"><span data-l="fr">Version 0.6 en test fermé. En production : une campagne de 12 missions réparties sur 4 zones.</span><span data-l="en">Version 0.6 in closed testing. In production: a 12-mission campaign across 4 zones.</span></p>
+          <p class="state"><span data-l="fr">Test fermé sur Android. La campagne continue d’évoluer avant la sortie publique.</span><span data-l="en">Closed testing on Android. The campaign continues to evolve ahead of public release.</span></p>
         </div>
       </article>
     </div>
@@ -500,7 +558,7 @@ footer a { color: var(--snow); text-decoration-color: var(--gold); text-underlin
       </li>
       <li>
         <b><span data-l="fr">Installez et jouez</span><span data-l="en">Install and play</span></b>
-        <p><span data-l="fr">Ouvrez ce lien, acceptez l'invitation, puis installez le jeu depuis Google Play. Gardez-le au moins 14 jours.</span><span data-l="en">Open that link, accept the invitation, then install the game from Google Play. Keep it for at least 14 days.</span></p>
+        <p><span data-l="fr">Ouvrez le lien reçu, acceptez l’invitation, puis installez le jeu depuis Google Play. Vos retours nous aident à l’améliorer.</span><span data-l="en">Open the link you receive, accept the invitation, then install the game from Google Play. Your feedback helps us improve it.</span></p>
       </li>
     </ol>
     <div class="join">
@@ -523,6 +581,40 @@ footer a { color: var(--snow); text-decoration-color: var(--gold); text-underlin
       <span data-l="fr">Votre adresse sert uniquement à vous ajouter au test Google Play. Nous ne la partageons avec personne.</span>
       <span data-l="en">We use your address only to add you to the Google Play test and never share it.</span>
     </p>
+  </div>
+</section>
+
+<section id="developpement" aria-labelledby="dev-t">
+  <div class="wrap sec-head">
+    <p class="label"><span data-l="fr">En développement</span><span data-l="en">In development</span></p>
+    <h2 id="dev-t"><span data-l="fr">La suite se forge ici</span><span data-l="en">Forging what comes next</span></h2>
+  </div>
+  <article class="wrap development" aria-labelledby="ld-t">
+    <div class="development-copy">
+      <span class="chip"><i class="dot dev" aria-hidden="true"></i><span data-l="fr">Prototype 3D · non publié</span><span data-l="en">3D prototype · unreleased</span></span>
+      <h3 id="ld-t">LUMEN DRIFT</h3>
+      <p class="tag"><span data-l="fr">Exploration à pied et en vaisseau</span><span data-l="en">Explore on foot and by spacecraft</span></p>
+      <p class="lead"><span data-l="fr">L’aventure prend une nouvelle dimension. Le développement se concentre désormais sur la 3D : un premier vol en vaisseau, un écrasement et l’exploration des Glaces d’Ostara. La lumière reste au cœur de ce monde de science-fiction.</span><span data-l="en">The adventure takes on a new dimension. Development now focuses on 3D: a first spacecraft flight, a crash and exploration of the Glaces d’Ostara. Light remains at the heart of this science-fiction world.</span></p>
+      <p class="note"><span data-l="fr">Prototype en cours de développement. Aucune sortie publique ni date de lancement annoncée.</span><span data-l="en">Prototype in development. No public release or launch date has been announced.</span></p>
+    </div>
+    <figure>
+      <img src="assets/ld-prototype-3d.jpg" width="1280" height="720" loading="lazy" alt="Lumen Drift : vue du cockpit d’un vaisseau face aux paysages glacés d’Ostara, dans le prototype 3D.">
+      <figcaption class="note"><span data-l="fr">Capture du prototype 3D — visuels en cours de développement.</span><span data-l="en">3D prototype screenshot — visuals are work in progress.</span></figcaption>
+    </figure>
+  </article>
+</section>
+
+<section id="boutique" class="shop" aria-labelledby="shop-t">
+  <div class="wrap">
+    <div class="shop-panel">
+      <div class="shop-copy">
+        <p class="label"><span data-l="fr">Boutique</span><span data-l="en">Shop</span></p>
+        <h2 id="shop-t"><span data-l="fr">La boutique se prépare</span><span data-l="en">Our shop is taking shape</span></h2>
+        <p class="lead"><span data-l="fr">La boutique ATLAS FORGE STUDIOS est en préparation. Aucun produit n’est disponible à l’achat pour le moment. Découvrez nos jeux disponibles en attendant.</span><span data-l="en">The ATLAS FORGE STUDIOS shop is in preparation. No products are available to purchase at the moment. Explore our available games in the meantime.</span></p>
+        <div class="actions"><a class="btn ghost" href="#jeux-disponibles"><span data-l="fr">Découvrir nos jeux</span><span data-l="en">Explore our games</span><span aria-hidden="true">↗</span></a></div>
+      </div>
+      <img class="shop-emblem" src="assets/emblem.webp" width="760" height="508" alt="" loading="lazy">
+    </div>
   </div>
 </section>
 
@@ -600,7 +692,7 @@ footer a { color: var(--snow); text-decoration-color: var(--gold); text-underlin
           <tr>
             <th scope="row">ElevenLabs</th>
             <td><span data-l="fr">Voix, bruitages et ambiances</span><span data-l="en">Voices, sound effects and ambiences</span></td>
-            <td><span data-l="fr">Brasier : 102 répliques et 33 bruitages. Lumen Drift : 32 bruitages, 12 ambiances et la voix de MNÉMÉ.</span><span data-l="en">Brasier: 102 voice lines and 33 sound effects. Lumen Drift: 32 sound effects, 12 ambiences and the voice of MNÉMÉ.</span></td>
+            <td><span data-l="fr">Les répliques et bruitages de Brasier ; les ambiances et la voix de MNÉMÉ dans Lumen Drift.</span><span data-l="en">Character lines and sound effects for Brasier; ambience and MNÉMÉ’s voice in Lumen Drift.</span></td>
           </tr>
           <tr>
             <th scope="row">Suno</th>
@@ -620,7 +712,7 @@ footer a { color: var(--snow); text-decoration-color: var(--gold); text-underlin
           <tr>
             <th scope="row">Meshy</th>
             <td><span data-l="fr">Modèles 3D</span><span data-l="en">3D models</span></td>
-            <td><span data-l="fr">Les 7 guitares 3D de Volt Riff et les 18 modèles de Lumen Drift</span><span data-l="en">Volt Riff's 7 3D guitars and Lumen Drift's 18 models</span></td>
+            <td><span data-l="fr">Des guitares de Volt Riff aux personnages et objets de Lumen Drift</span><span data-l="en">From Volt Riff guitars to Lumen Drift characters and props</span></td>
           </tr>
           <tr>
             <th scope="row">Unity, Godot</th>
@@ -682,6 +774,7 @@ footer a { color: var(--snow); text-decoration-color: var(--gold); text-underlin
   var root = document.documentElement;
 
   function setLang(l) {
+    l = l === "en" ? "en" : "fr";
     root.setAttribute("data-lang", l);
     root.lang = l;
     document.getElementById("lang-fr").setAttribute("aria-pressed", String(l === "fr"));
