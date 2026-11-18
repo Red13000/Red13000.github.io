@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer"><meta name="robots" content="noindex">
+<title>Invitation à la table · Ronda Yallah</title>
+<style>
+*{box-sizing:border-box}body{margin:0;min-height:100dvh;display:grid;place-items:center;background:#152d25;color:#fff4d4;font:1rem/1.5 system-ui,sans-serif;padding:1.4rem}main{width:min(100%,28rem)}h1{font-size:2rem;line-height:1.15}a{display:block;text-align:center;padding:.8rem;margin:.8rem 0;border-radius:.7rem;background:#eed18a;color:#182b22;font-weight:650;text-decoration:none}a.secondary{background:transparent;color:#fff4d4;border:1px solid #a79468}code{overflow-wrap:anywhere;user-select:all;color:#f1d48f}[hidden]{display:none!important}
+</style>
+</head>
+<body><main>
+<h1 id="title">Rejoins la table Ronda</h1>
+<div id="invite" hidden>
+<a id="open">Rejoindre dans Ronda Yallah</a>
+<a class="secondary" id="store">Installer sur Google Play</a>
+<p id="hint">Tu peux aussi coller ce code dans la table privée de Ronda.</p>
+<code id="code" dir="ltr"></code>
+</div>
+<p id="error">Ouvre le lien complet envoyé par ton ami.</p>
+</main><script>
+const id = location.hash.slice(1);
+const texts = {
+ en:["Join the Ronda table","Open in Ronda Yallah","Install on Google Play","You can also paste this code into a private Ronda table.","Open the full invitation link your friend sent."],
+ ar:["انضم إلى طاولة الروندا","افتح روندا يلاه","ثبّت اللعبة من Google Play","يمكنك أيضاً لصق هذا الرمز في الطاولة الخاصة داخل الروندا.","افتح رابط الدعوة الكامل الذي أرسله صديقك."],
+ es:["Únete a la mesa de Ronda","Abrir en Ronda Yallah","Instalar desde Google Play","También puedes pegar este código en la mesa privada de Ronda.","Abre el enlace completo que te envió tu amigo."]
+};
+const language = navigator.language.split("-")[0];
+if(texts[language]){
+ document.documentElement.lang=language;
+ document.documentElement.dir=language==="ar"?"rtl":"ltr";
+ ["title","open","store","hint","error"].forEach((key,i)=>document.getElementById(key).textContent=texts[language][i]);
+}
+if(/^[0-9a-fA-F]{8}(?:-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}\.[A-Za-z0-9_-]{1,64}$/.test(id)){
+ const store="https://play.google.com/store/apps/details?id=com.redahayek.ronda&referrer="+encodeURIComponent("ronda_table="+id);
+ document.getElementById("store").href=store;
+ document.getElementById("open").href="intent://table/"+id+"#Intent;scheme=rondayallah;package=com.redahayek.ronda;S.browser_fallback_url="+encodeURIComponent(store)+";end";
+ document.getElementById("code").textContent=id;
+ document.getElementById("error").hidden=true;
+ document.getElementById("invite").hidden=false;
+ if(!/Android/i.test(navigator.userAgent)) document.getElementById("open").hidden=true;
+}
+</script></body></html>
